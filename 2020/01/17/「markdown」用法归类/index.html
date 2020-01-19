@@ -28,7 +28,7 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -38,7 +38,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">Hello,I'm Dosia</span>
                 </a>
@@ -158,7 +158,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/favicon.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">Hello,I'm Dosia</div>
         <div class="logo-desc">
@@ -540,16 +540,36 @@
 </li>
 <li><p><strong>【注意】</strong> 插入分割线以后很容易导致后面的<strong>格式错乱</strong>，这时候加一个<strong>回车（Enter）</strong> 对其隔开即可。</p>
 </li>
-<li><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h2></li>
-<li><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a><strong>列表</strong></h2></li>
-<li><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h2></li>
-<li><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h2></li>
-<li><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h2></li>
-<li><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2></li>
-<li><h2 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a><strong>选择框</strong></h2></li>
+<li><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h2><p><img src="https://images.app.goo.gl/9q278iHgNAsNs6fd7" alt="name"></p>
+</li>
+<li><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a><strong>列表</strong></h2><pre><code>      - + 空格 + 内容
+  （Tab）+ - + 空格 + 内容</code></pre></li>
+<li><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h2><pre><code>      [此处替换显示文字](链接地址)            </code></pre><p>  <a href="http://www.baidu.con" target="_blank" rel="noopener">百度</a></p>
+<p>  <strong>【注意】</strong> <em>“！”跟注括号[]表示图片</em></p>
+<pre><code>          *没有“！”跟[]表示超链接*</code></pre></li>
+<li><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h2><pre><code>  |表头|表头|表头|
+  |---|:--:|---:|
+  |内容|内容|内容|
+  |内容|内容|内容|
+
+  第二行分割表头和内容。
+  - 有一个就行，为了对齐，多加了几个
+  文字默认居左
+  -两边加：表示文字居中
+  -右边加：表示文字居右
+</code></pre></li>
+<li><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h2><pre><code>      &gt; + 空格 + 内容
+      (Tab) + &gt; + 空格 + 内容 （引用中的子引用）</code></pre></li>
+<li><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h2><pre><code>  前后两个单行 ``` 包裹住代码内容。</code></pre></li>
+<li><h2 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a><strong>选择框</strong></h2><ul>
+<li><input disabled="" type="checkbox"> 选择    </li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<hr>
+<p>更新于2020.1.18</p>
 
             </div>
             <hr/>
@@ -670,7 +690,9 @@
                             numpy为何定义：
 常用语法
 numpy.asarray(a)  将输入数据a转化为array（数组）形式。
-  123&gt;&gt;&gt; a &#x3D; [1, 2]&gt;&gt;&gt; np.asarray(a)array
+  &gt;&gt;&gt; a = [1, 2]
+  &gt;&gt;&gt; np.asarray(a)
+  array([
                         
                     </div>
                     <div class="publish-info">
@@ -732,6 +754,43 @@ numpy.asarray(a)  将输入数据a转化为array（数组）形式。
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Hello,I&#39;m Dosia<br />'
+            + '文章作者: zzg-dongxia<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者(冬夏)所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -863,7 +922,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2020</span>
             <a href="http://dosiagogo.githun.io" target="_blank">zzg-dongxia</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -891,7 +950,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/DosiAGOGO" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -996,6 +1055,10 @@ $(function () {
     
 
     
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
 
     
     
@@ -1003,6 +1066,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
