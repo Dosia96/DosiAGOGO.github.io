@@ -4,8 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java框架之Springboot-01安装与使用, Hello,I&#39;m Dosia">
-    <meta name="description" content="何为SpringbootSpringboot为一种框架，用通俗的话讲，就是一套方便开发的工具，或者说模板。Java语法还是Java语法，Idea、eclipse之类的为集成的开发环境（IDE），就是开发使用的比较方便的软件，或者说是高级的记">
+    <meta name="keywords" content="「学习计划」, Hello,I&#39;m Dosia">
+    <meta name="description" content="「个人计划整理贴」2020-01-11
+ 重装Ubuntu18  &amp;amp;  记录博客
+ 跑迁移学习的例程
+ 找到合适的java教程项目并记录博客
+ 跑学姐的训练模型代码
+
+2020-01-12
+ 学习markdown语法并记录博客
+20">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Java框架之Springboot-01安装与使用 | Hello,I&#39;m Dosia</title>
+    <title>「学习计划」 | Hello,I&#39;m Dosia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -351,12 +359,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java框架之Springboot-01安装与使用</h1>
+                    <h1 class="description center-align post-title">「学习计划」</h1>
                 </div>
             </div>
         </div>
@@ -485,7 +493,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-19
+                    2020-01-25
                 </div>
                 
 
@@ -502,43 +510,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="何为Springboot"><a href="#何为Springboot" class="headerlink" title="何为Springboot"></a>何为Springboot</h1><p>Springboot为一种框架，用通俗的话讲，就是<strong>一套</strong>方便开发的工具，或者说模板。Java语法还是Java语法，Idea、eclipse之类的为集成的开发环境（IDE），就是开发使用的比较方便的软件，或者说是高级的记事本。然后这些集成开发环境（IDE）中可以编写Java语法的文件，而把Java设定成框架，其中之一就是Springboot。（或者可以理解框架为一种工具箱，我想使用什么功能他都给你开发好了相应的工具，拿过来用就可以了。）</p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><p><strong>Java：</strong> Java是一种语言，就像我们英语、汉语一样，它是进行计算机编程的一种语言。</p>
-<p><strong>集成开发环境 IDE：</strong> 是书写语言的把各种用的功能（比如自动补全语法、语言不同部分显示不同颜色等功能）集成在一起的一个高级记事本，开发用的软件。</p>
-<p><strong>开发框架：</strong> 可以理解为开发的半成品，我把开发要用的各种类，工具（函数）都写好，放在框架里，然后编写这个工具、类的使用接口，到时候我们开发的时候，使用这个框架，类似的功能只需要写对应接口代码的很简单的一行，就可以直接使用本应该实现这个功能的好多行代码。<strong>所以框架就是设定好的包装好的一堆常用的代码块，并且使用者可以用简单的语句调用他们。</strong></p>
-<h1 id="Springboot的安装配置（for-Mac）"><a href="#Springboot的安装配置（for-Mac）" class="headerlink" title="Springboot的安装配置（for Mac）"></a>Springboot的安装配置（for Mac）</h1><blockquote>
-<ol>
-<li>安装、配置JDK</li>
-<li>安装、配置maven</li>
-<li>安装IDEA（最好是ultimate版本）</li>
-</ol>
-</blockquote>
-<ul>
-<li><h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="1-安装、配置JDK"><a href="#1-安装、配置JDK" class="headerlink" title="1. 安装、配置JDK"></a>1. 安装、配置JDK</h3><p>  （1）<strong>安装JDK：</strong></p>
-<p>  访问<a href="http://www.oracle.com" target="_blank" rel="noopener">Oracle官网</a>，点击左上角的<strong>菜单选项</strong>(网络很多旧教程说在官网下方寻找，其实位置变换了)，然后找到product help -&gt; Downloads -&gt; 找到Java分类 -&gt; 点击Java (JDK) for Developers -&gt; 选择一个版本下载 <em>（我使用的是Java SE 8u241，【注】我是mac的系统）</em>-&gt; 表格上方要选择Accept License Agreement -&gt; 下载好后顺序安装即可</p>
-<p>  （2）<strong>测试：</strong> </p>
-<p>  打开终端，输入</p>
-<pre><code>  java -version</code></pre><p>  如果输出版本号则安装成功。</p>
-<p>  （3）<strong>配置：</strong> </p>
-<p>  在终端中，<strong>（若没有.bash_profile配置文件,有则跳过此步）</strong> 继续输入</p>
-<pre><code>  touch .bash_profile</code></pre><p>  在终端输入</p>
-<pre><code>  open -e .bash_profile</code></pre><p>  在出现的窗口中输入如下配置：</p>
-<pre><code>  JAVA_HOME=/Library/Java/JavaVirtualMachines/jdkN.N.N_NN.jdk/Contents/Home
-  PATH=$JAVA_HOME/bin:$PATH:.
-  CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
-  export JAVA_HOME
-  export PATH
-  export CLASSPATH</code></pre><p>  <em>【注】配置第一行中 <strong>jdk.N.N.N_NN</strong> 处替换成自己的版本号（查看版本号的方法 1.可以通过终端从Library开始逐渐走到jdk文件夹下查看，或者在Macintosh HD -&gt; 资源库 -&gt; java -&gt; JavaVirtualMachines中找到）</em></p>
-<p>  关闭窗口，继续在终端中输入：</p>
-<pre><code>  source .bash_profile</code></pre><p>  刚刚设定的配置生效。</p>
-<p>  终端继续输入：</p>
-<pre><code>  echo $JAVA_HOME</code></pre><p>  显示刚刚配置的路径。</p>
+                <h1 id="「个人计划整理贴」"><a href="#「个人计划整理贴」" class="headerlink" title="「个人计划整理贴」"></a>「个人计划整理贴」</h1><h2 id="2020-01-11"><a href="#2020-01-11" class="headerlink" title="2020-01-11"></a>2020-01-11</h2><ul>
+<li><input disabled="" type="checkbox"> 重装Ubuntu18  &amp;  记录博客</li>
+<li><input checked="" disabled="" type="checkbox"> 跑迁移学习的例程</li>
+<li><input disabled="" type="checkbox"> 找到合适的java教程项目并记录博客</li>
+<li><input checked="" disabled="" type="checkbox"> 跑学姐的训练模型代码</li>
+</ul>
+<h2 id="2020-01-12"><a href="#2020-01-12" class="headerlink" title="2020-01-12"></a>2020-01-12</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <p>学习markdown语法并记录博客</p>
+<h2 id="2020-01-13"><a href="#2020-01-13" class="headerlink" title="2020-01-13"></a>2020-01-13</h2></li>
+<li><input disabled="" type="checkbox"> <p>迁移学习例程研究理解</p>
+<h2 id="2020-01-25"><a href="#2020-01-25" class="headerlink" title="2020-01-25"></a>2020-01-25</h2></li>
+<li><input disabled="" type="checkbox"> <p>迁移学习论文调研</p>
 </li>
 </ul>
-<pre><code>**参考教程**（我的教程如果有疑问可以查看这个教程）： https://blog.csdn.net/vvv_110/article/details/72897142
 
-
-### 2. 安装、配置maven</code></pre>
             </div>
             <hr/>
 
@@ -563,7 +549,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dosiagogo.githun.io/2020/01/19/Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringboot-01%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">http://dosiagogo.githun.io/2020/01/19/Java%E6%A1%86%E6%9E%B6%E4%B9%8BSpringboot-01%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</a>
+                    <a href="http://dosiagogo.githun.io/2020/01/25/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E3%80%8D/">http://dosiagogo.githun.io/2020/01/25/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E3%80%8D/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,37 +625,38 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/21/%E3%80%8C%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%E3%80%8D%E5%AE%8F%E8%A7%82%E6%96%B9%E6%B3%95%E6%95%B4%E7%90%86/">
+                <a href="/2020/01/25/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E3%80%8D/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="「迁移学习」宏观方法整理">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="「学习计划」">
                         
-                        <span class="card-title">「迁移学习」宏观方法整理</span>
+                        <span class="card-title">「学习计划」</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-0. 迁移学习概念
-监督学习
-无监督学习
-领域自适应
-深度迁移学习
-联合分布
-边缘分布  p(x)是说数据产生的机制不同，比如不同光照背景角度照相机的图像和视频。不同的用户产生的行为数据。不同主题的文本特征。
-条件分布  同一个样本体的不
+                            「个人计划整理贴」2020-01-11
+ 重装Ubuntu18  &amp;  记录博客
+ 跑迁移学习的例程
+ 找到合适的java教程项目并记录博客
+ 跑学姐的训练模型代码
+
+2020-01-12
+ 学习markdown语法并记录博客
+20
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -678,6 +665,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -688,24 +676,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/19/Java%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/">
+                <a href="/2020/01/25/%E3%80%8C%E7%9F%A5%E8%AF%86%E6%A0%88%E3%80%8D/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Java开发流程">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="「知识栈」">
                         
-                        <span class="card-title">Java开发流程</span>
+                        <span class="card-title">「知识栈」</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            知识栈知识记录
+ Markdown 
+ GitHub的学习与使用
+ Linux的安装
+ Linux的基本操作
+ cuda &amp; cudnn &amp; 显卡驱动 &amp; tensorflow
+ 核函数 &amp; 支持向量机SVM
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-25
                             </span>
                         <span class="publish-author">
                             
