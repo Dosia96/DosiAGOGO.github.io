@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="「Java开发」基本语法, Hello,I&#39;m Dosia">
     <meta name="description" content="Java基本语法00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）01节开始内容仅为个人笔记、重点补充，如需详细学习可去 菜鸟教程
-01 java注释1.//单行注释
+01 注释1.//单行注释
 2./*
 多行注释
-*/02 java类与对">
+*/02 类与对象
+一个源文件中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -507,18 +508,26 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Java基本语法"><a href="#Java基本语法" class="headerlink" title="Java基本语法"></a>Java基本语法</h1><h2 id="00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）"><a href="#00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）" class="headerlink" title="00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）"></a>00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）</h2><p>01节开始内容仅为个人笔记、重点补充，如需详细学习可去 <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-<h2 id="01-java注释"><a href="#01-java注释" class="headerlink" title="01 java注释"></a>01 java注释</h2><pre><code>1.//单行注释
+<h2 id="01-注释"><a href="#01-注释" class="headerlink" title="01 注释"></a>01 注释</h2><pre><code>1.//单行注释
 2./*
 多行注释
-*/</code></pre><h2 id="02-java类与对象"><a href="#02-java类与对象" class="headerlink" title="02 java类与对象"></a>02 java类与对象</h2><ul>
-<li>一个<strong>源文件</strong>中只能有<strong>一个public类</strong>（类与文件名对应一致）</li>
-<li>一个源文件可以有<strong>多个非public类</strong></li>
-<li><em>如果一个类定义在某个<strong>包（是什么意思）</strong> 中，那么package语句应该在源文件的首行。</em></li>
-<li><strong>import语句</strong>放在package语句和类定义之间。</li>
-<li>import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。<h2 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h2>对成百上千的类和接口进行<strong>分类</strong>。</li>
+*/</code></pre><h2 id="02-类与对象"><a href="#02-类与对象" class="headerlink" title="02 类与对象"></a>02 类与对象</h2><ul>
+<li><p>一个<strong>源文件</strong>中只能有<strong>一个public类</strong>（类与文件名对应一致）</p>
+</li>
+<li><p>一个源文件可以有<strong>多个非public类</strong></p>
+</li>
+<li><p><em>如果一个类定义在某个<strong>包（是什么意思）</strong> 中，那么package语句应该在源文件的首行。</em></p>
+</li>
+<li><p><strong>import语句</strong>放在package语句和类定义之间。</p>
+</li>
+<li><p>import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。</p>
+<p>父类中声明为 private 的方法，不能够被继承。</p>
+<h2 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h2><p>对成百上千的类和接口进行<strong>分类</strong>。</p>
+</li>
 </ul>
+<p><strong>*java中类与包的关系</strong>包就是工具箱，类就是工具箱里的工具。*</p>
 <p><em>【疑问】java定义一个源文件里面放一个public类p1，然后再定义一个源文件里面放一个public类p2，并在p2的main函数里使用p1创建对象。此时p2是如何定位到p1的？<a href="https://www.runoob.com/java/java-object-classes.html" target="_blank" rel="noopener">问题链接</a></em></p>
-<h2 id="04-java引用类型"><a href="#04-java引用类型" class="headerlink" title="04 java引用类型"></a>04 java引用类型</h2><p>类似于C/C++的指针，指向一个<strong>对象</strong>，他其实和int之类类似，java的数据类型分为两类：原始数据类型（int、long之类）&amp;引用数据类型。引用数据类型即非标准的那些数据类型。</p>
+<h2 id="04-引用类型"><a href="#04-引用类型" class="headerlink" title="04 引用类型"></a>04 引用类型</h2><p>类似于C/C++的指针，指向一个<strong>对象</strong>，他其实和int之类类似，java的数据类型分为两类：原始数据类型（int、long之类）&amp;引用数据类型。引用数据类型即非标准的那些数据类型。</p>
 <p><em>比如正常我们是</em></p>
 <pre><code>int a = 10</code></pre><p><em>而引用数据类型我们可以有</em></p>
 <pre><code>Site a = new Site(&quot;Runoob&quot;)。</code></pre><ul>
@@ -534,6 +543,26 @@
 <li>因此，前半部分 XXX a 是创建一个内存空间，等待存放东西；后半部分，new XXX（）是调用XXX（）构造方法将类XXX实例化，创建一个XXX类对应的对象。然后把这个对象赋值给刚刚创建的空间。</li>
 </ul>
 <p><em><a href="https://zhidao.baidu.com/question/55121438.html" target="_blank" rel="noopener">参考资料</a></em></p>
+<h2 id="06-常量"><a href="#06-常量" class="headerlink" title="06 常量"></a>06 常量</h2><p>在 Java 中使用 final 关键字来修饰常量。通常使用大写。</p>
+<pre><code>final double PI = 3.1415927;</code></pre><h2 id="07-转义符"><a href="#07-转义符" class="headerlink" title="07 转义符"></a>07 转义符</h2><pre><code>\n    换行 (0x0a)
+\r    回车 (0x0d)
+\f    换页符(0x0c)
+\b    退格 (0x08)
+\0    空字符 (0x20)
+\s    字符串
+\t    制表符
+\&quot;    双引号
+\&#39;    单引号
+\\    反斜杠
+\ddd    八进制字符 (ddd)
+\uxxxx    16进制Unicode字符 (xxxx)</code></pre><h2 id="08-类型转换"><a href="#08-类型转换" class="headerlink" title="08 类型转换"></a>08 类型转换</h2><p>使用方法：加括号表达强制转换。</p>
+<pre><code>（int）a</code></pre><p>表示将a转换为int类型。</p>
+<h2 id="09-非访问修饰符-（什么叫非访问修饰符？）"><a href="#09-非访问修饰符-（什么叫非访问修饰符？）" class="headerlink" title="09 非访问修饰符 （什么叫非访问修饰符？）"></a>09 非访问修饰符 <em>（什么叫非访问修饰符？）</em></h2><ul>
+<li>static 修饰符，用来修饰<strong>类方法和类变量</strong>。<em>静态，就是全局，比如类中的static修饰的变量，就是所有的对象共享的变量。</em></li>
+<li>final 修饰符，用来修饰<strong>类、方法和变量</strong>，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，不可修改。<em>就是常量的意思。</em></li>
+<li>abstract 修饰符，用来创建抽象类和抽象方法。抽象方法是一种没有任何实现的方法，该方法的的具体实现由子类提供。子类必须实现父类的所有抽象方法。</li>
+<li>synchronized（同一时间只能被一个线程访问） 和 volatile（每次被线程访问时，都强制从共享内存中重新读取该成员变量的值） transient（java 虚拟机(JVM)跳过该特定的变量） 修饰符，主要用于线程的编程。</li>
+</ul>
 <h1 id="Java小细节补充"><a href="#Java小细节补充" class="headerlink" title="Java小细节补充"></a>Java小细节补充</h1><h3 id="的用法与意义"><a href="#的用法与意义" class="headerlink" title="@的用法与意义"></a>@的用法与意义</h3><blockquote>
 <p><strong>注解</strong>，顾名思义，注解,就是对某一事物进行添加注释说明，会存放一些信息，这些信息可能对以后某个时段来说是很有用处的。</p>
 </blockquote>
@@ -552,7 +581,7 @@
 </ol>
 </li>
 </ul>
-
+<h3 id="接口是什么"><a href="#接口是什么" class="headerlink" title="接口是什么"></a>接口是什么</h3>
             </div>
             <hr/>
 
