@@ -92,10 +92,10 @@ hr {
 }
 
 blockquote {
-    border-left: 5px solid #b03bc796;
+    border-left: 5px solid #23d4bc96;
     padding: 1rem 0.8rem 0.2rem 0.8rem;
-    color: rgb(80, 70, 70);
-    background-color: rgba(66, 171, 185, 0.1);
+    color: rgba(75, 110, 197, 0.7);
+    background-color: rgba(15, 218, 245, 0.14);
 }
 
 .line-numbers-rows {
