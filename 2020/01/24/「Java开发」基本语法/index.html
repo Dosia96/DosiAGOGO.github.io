@@ -9,8 +9,8 @@
 01 注释1.//单行注释
 2./*
 多行注释
-*/02 类与对象
-一个源文件中">
+*/02 类与对象特征：
+一个源">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -577,7 +577,7 @@
 <h2 id="01-注释"><a href="#01-注释" class="headerlink" title="01 注释"></a>01 注释</h2><pre><code>1.//单行注释
 2./*
 多行注释
-*/</code></pre><h2 id="02-类与对象"><a href="#02-类与对象" class="headerlink" title="02 类与对象"></a>02 类与对象</h2><ul>
+*/</code></pre><h2 id="02-类与对象"><a href="#02-类与对象" class="headerlink" title="02 类与对象"></a>02 类与对象</h2><h3 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h3><ul>
 <li><p>一个<strong>源文件</strong>中只能有<strong>一个public类</strong>（类与文件名对应一致）</p>
 </li>
 <li><p>一个源文件可以有<strong>多个非public类</strong></p>
@@ -588,10 +588,17 @@
 </li>
 <li><p>import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。</p>
 <p>父类中声明为 private 的方法，不能够被继承。</p>
-<h2 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h2><p>对成百上千的类和接口进行<strong>分类</strong>。</p>
 </li>
 </ul>
-<p><strong>*java中类与包的关系</strong>包就是工具箱，类就是工具箱里的工具。*</p>
+<p>采用 this 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name变量）之间发生的同名的冲突。 如：this.name = name。前者为奔类中定义的变量，而后者的name为方法中的形参。</p>
+<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h3><p>避免类似重复，因此把其提取归类，比如职业类，然后子类比如教师类是继承自父类的，将父类拥有的（共同）特征继承过来，同时可以拥有自己的新的东西。<strong>一个子类只能继承一个父类</strong>。但是<strong>一个接口可以继承多个接口</strong>。类继承使用extends，接口继承使用implements。子类可以<strong>重写</strong>父类中的同名且参数列表相同的方法。</p>
+<p><a href="https://blog.csdn.net/weigb/article/details/1864192" target="_blank" rel="noopener">多态和重载的区别</a></p>
+<h3 id="final、super和this关键字："><a href="#final、super和this关键字：" class="headerlink" title="final、super和this关键字："></a>final、super和this关键字：</h3><p>super用来访问当前类的父类，this是指向自己的引用。final描述最终类，最终类不能被继承。</p>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>其中不包含能够实例化一个对象的具体内容，因此必须被<strong>继承</strong>然后其子类对其描述后才能使用。父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。<br>使用abstract class来定义抽象类。</p>
+<h2 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h2><p>对成百上千的类和接口进行<strong>分类</strong>。</p>
+<ul>
+<li><strong>java中类与包的关系</strong> 包就是工具箱，类就是工具箱里的工具。*</li>
+</ul>
 <p><em>【疑问】java定义一个源文件里面放一个public类p1，然后再定义一个源文件里面放一个public类p2，并在p2的main函数里使用p1创建对象。此时p2是如何定位到p1的？<a href="https://www.runoob.com/java/java-object-classes.html" target="_blank" rel="noopener">问题链接</a></em></p>
 <h2 id="04-引用类型"><a href="#04-引用类型" class="headerlink" title="04 引用类型"></a>04 引用类型</h2><p>类似于C/C++的指针，指向一个<strong>对象</strong>，他其实和int之类类似，java的数据类型分为两类：原始数据类型（int、long之类）&amp;引用数据类型。引用数据类型即非标准的那些数据类型。</p>
 <p><em>比如正常我们是</em></p>
@@ -600,14 +607,9 @@
 <li>对象、数组都是引用数据类型。</li>
 <li>所有引用类型的默认值都是null。</li>
 </ul>
-<h2 id="05-java中的new，-XXX-a-new-XXX（）；"><a href="#05-java中的new，-XXX-a-new-XXX（）；" class="headerlink" title="05 java中的new， XXX a = new XXX（）；"></a>05 java中的new， XXX a = new XXX（）；</h2><ul>
-<li><strong>首先解析后半部分</strong>，new XXX的作用，XXX是一个类，它是没有实例化的，也就是说，我们定义了一个书的类，类里有标签啊，内容啊，书名啊，但是这是抽象的，只有实例化到某本书，他才有具体对应的书本信息。即标签是四大名著，内容是……，书名是《三国演义》。</li>
-</ul>
-<p><strong>new后面跟一个构造方法，来创建一个对象。</strong></p>
-<ul>
-<li><strong>再看前半部分</strong> XXX a，即在内存中分配一个变量，名字叫a，这个变量是XXX类型的。</li>
-<li>因此，前半部分 XXX a 是创建一个内存空间，等待存放东西；后半部分，new XXX（）是调用XXX（）构造方法将类XXX实例化，创建一个XXX类对应的对象。然后把这个对象赋值给刚刚创建的空间。</li>
-</ul>
+<h2 id="05-java中的new，-XXX-a-new-XXX（）；"><a href="#05-java中的new，-XXX-a-new-XXX（）；" class="headerlink" title="05 java中的new， XXX a = new XXX（）；"></a>05 java中的new， XXX a = new XXX（）；</h2><p><strong>首先解析后半部分</strong>，new XXX的作用，XXX是一个类，它是没有实例化的，也就是说，我们定义了一个书的类，类里有标签啊，内容啊，书名啊，但是这是抽象的，只有实例化到某本书，他才有具体对应的书本信息。即标签是四大名著，内容是……，书名是《三国演义》。<br><strong>new后面跟一个构造方法，来创建一个对象。</strong></p>
+<p><strong>再看前半部分</strong> XXX a，即在内存中分配一个变量，名字叫a，这个变量是XXX类型的。</p>
+<p>因此，前半部分 XXX a 是创建一个内存空间，等待存放东西；后半部分，new XXX（）是调用XXX（）构造方法将类XXX实例化，创建一个XXX类对应的对象。然后把这个对象赋值给刚刚创建的空间。</p>
 <p><em><a href="https://zhidao.baidu.com/question/55121438.html" target="_blank" rel="noopener">参考资料</a></em></p>
 <h2 id="06-常量"><a href="#06-常量" class="headerlink" title="06 常量"></a>06 常量</h2><p>在 Java 中使用 final 关键字来修饰常量。通常使用大写。</p>
 <pre><code>final double PI = 3.1415927;</code></pre><h2 id="07-转义符"><a href="#07-转义符" class="headerlink" title="07 转义符"></a>07 转义符</h2><pre><code>\n    换行 (0x0a)
@@ -634,7 +636,8 @@
 {
    //从表达式num中访问其每一个元素，每一次循环对应其中一个元素的取值并赋值给x。
    //比如num={1，2，3，4，5}，每次的x为1或者2……。直至遍历结束。
-}</code></pre><h1 id="Java小细节补充"><a href="#Java小细节补充" class="headerlink" title="Java小细节补充"></a>Java小细节补充</h1><h3 id="的用法与意义"><a href="#的用法与意义" class="headerlink" title="@的用法与意义"></a>@的用法与意义</h3><blockquote>
+}</code></pre><h2 id="11-正则表达式"><a href="#11-正则表达式" class="headerlink" title="11 正则表达式"></a>11 正则表达式</h2><h3 id="「此处需要系统学习」"><a href="#「此处需要系统学习」" class="headerlink" title="「此处需要系统学习」"></a><a href="https://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="noopener"><strong>「此处需要系统学习」</strong></a></h3><p>正则表达式定义了字符串的模式。用于操作（复杂）文本。<br>其实就是构成文本的规则，其中有我们常见的字符串，同时也有一些记号，比如/n之类。java中/d表示任意数字，这样在一个“文本内容”中，出现改变的数字就不用麻烦的替换，只需要用表达式代替。除此之外还有许多正则表达式。</p>
+<h1 id="Java小细节补充"><a href="#Java小细节补充" class="headerlink" title="Java小细节补充"></a>Java小细节补充</h1><h3 id="的用法与意义"><a href="#的用法与意义" class="headerlink" title="@的用法与意义"></a>@的用法与意义</h3><blockquote>
 <p><strong>注解</strong>，顾名思义，注解,就是对某一事物进行添加注释说明，会存放一些信息，这些信息可能对以后某个时段来说是很有用处的。</p>
 </blockquote>
 <ul>
