@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「Java框架」springboot2-项目实战, Hello,I&#39;m Dosia">
-    <meta name="description" content="「Java框架」springboot2-项目实战 | Hello,I&#39;m Dosia">
+    <meta name="description" content="Springboot项目实战-社区建立配置环境：首先要配置jdk8，maven，下载Idea Ultimate版本，（社区版本打开springboot好像有点麻烦），一般Ultimate版本可以通过学校邮箱注册，免费使用。安装方法可见我的另">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -568,7 +568,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="Springboot项目实战-社区建立"><a href="#Springboot项目实战-社区建立" class="headerlink" title="Springboot项目实战-社区建立"></a>Springboot项目实战-社区建立</h1><h2 id="配置环境："><a href="#配置环境：" class="headerlink" title="配置环境："></a>配置环境：</h2><p>首先要配置jdk8，maven，下载Idea Ultimate版本，（社区版本打开springboot好像有点麻烦），一般Ultimate版本可以通过学校邮箱注册，免费使用。安装方法可见我的另一篇博客。配置好以后直接新建项目即可使用springboot，本项目是做一个基于Springboot框架的Web社区，详细教程可以参考<a href="https://www.bilibili.com/video/av50200264?p=1" target="_blank" rel="noopener">码酱社区</a>。</p>
+<ul>
+<li><p>配置jdk8，maven，Idea Ultimate。</p>
+</li>
+<li><p>安装完成后，点开idea。</p>
+</li>
+</ul>
+<h2 id="创建工程："><a href="#创建工程：" class="headerlink" title="创建工程："></a>创建工程：</h2><ul>
+<li><p>选择new project</p>
+</li>
+<li><p>左侧选择Spring Initializr，默认会置于 start.spring.io ,SDK选择1.8。点击next。</p>
+</li>
+<li><p>配置Metadata</p>
+<ul>
+<li><p>Group：是所要创建网页的倒叙，比如com.baidu.www。这里我输入的是cc.smcoco.community</p>
+</li>
+<li><p>artifact：和group共同组成最后一行package。artifact我输入的是community</p>
+</li>
+<li><p>name：修改成community</p>
+</li>
+<li><p>Description：描述随意。</p>
+</li>
+<li><p>其他随意。点击next。</p>
+</li>
+</ul>
+</li>
+<li><p>Dependencies</p>
+<ul>
+<li>选择 Web-Spring Web 点击next</li>
+</ul>
+</li>
+<li><p>name修改为community，点击next</p>
+</li>
+</ul>
+<h2 id="Springboot工程文件简介（基础认知）："><a href="#Springboot工程文件简介（基础认知）：" class="headerlink" title="Springboot工程文件简介（基础认知）："></a>Springboot工程文件简介（基础认知）：</h2><p><img src="/Users/zzg/Desktop/screenshoot01" alt="工程内样图"></p>
+<p>图中：</p>
+<ol>
+<li><p>在最根部目录(community)处点击右键 -&gt; mark as -&gt; source root。此时会发现其子目录部分文件夹图标内多了一个圆点。<em>如果要在子目录中创建package，必须设定根目录，否则无选项。</em></p>
+</li>
+<li><p>子目录中src：表示源码。src.main.java.cc.smcoco.community顺着目录一步步打开可以看到 <strong>CommunityApplication</strong>。这是我们执行的基础文件（在此处点击右键运行此文件即可运行整个工程）</p>
+</li>
+<li><p>src.main.resources中static中存放一些资源文件（css、js等我后来下载的bootstrap文件存放其中），templite文件夹中存放一些模板文件？</p>
+</li>
+<li><p>community根目录下，pom用于存放依赖。</p>
+</li>
+</ol>
+<h2 id="小试牛刀："><a href="#小试牛刀：" class="headerlink" title="小试牛刀："></a>小试牛刀：</h2><p>使用springtboot做一个简单的网页功能。</p>
+<ol>
+<li>在 spring.io/guides 网页中搜索thymeleaf，在maven位置找到<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">groupId</span>></span>org.springframework.boot<span class="hljs-tag"></<span class="hljs-name">groupId</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">artifactId</span>></span>spring-boot-starter-thymeleaf<span class="hljs-tag"></<span class="hljs-name">artifactId</span>></span>
+<span class="hljs-tag"></<span class="hljs-name">dependency</span>></span></code></pre>
+放置于一堆 <pre class=" language-hljs apache"><span class="hljs-section"><code class="language-hljs apache"><span class="hljs-section"><dependency></span></code></pre>
+中，即添加相关依赖。</li>
+</ol>
+<p>此功能实现将所需的资源包加载进pom.xml文件内，idea会自动读取此文件内需要的依赖文件，然后根据弹出的内容选择import，即自动导入好所需要的依赖功能。</p>
+<p>此即为maven的功能和用法。</p>
+<blockquote>
+<p>今后使用其他功能（依赖）时，只要此功能在maven库中有存放，即可在 mvnrepository.com 中找到（或者对应功能的网站有提供maven的引用方法），然后找到如上两个dependency标签包裹的内容，把其内容添加至工程的pom.xml文件对应的dependency位置即可。</p>
+</blockquote>
+<h2 id="导航栏前端制作"><a href="#导航栏前端制作" class="headerlink" title="导航栏前端制作"></a>导航栏前端制作</h2><h2 id="导航栏登录按钮功能实现"><a href="#导航栏登录按钮功能实现" class="headerlink" title="导航栏登录按钮功能实现"></a>导航栏登录按钮功能实现</h2><h3 id="1-获得权限authorize"><a href="#1-获得权限authorize" class="headerlink" title="1. 获得权限authorize"></a>1. 获得权限authorize</h3><h3 id="2-获得access-token"><a href="#2-获得access-token" class="headerlink" title="2. 获得access token"></a>2. 获得access token</h3>
             </div>
             <hr/>
 
@@ -685,7 +745,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Idea常用快捷键
+自动创建方法 command + N 
+command + shift + F12
+command + O
+提示错误自动更正 option + enter
+快速创建变量（选中要定义的变量） command + optio
                         
                     </div>
                     <div class="publish-info">
