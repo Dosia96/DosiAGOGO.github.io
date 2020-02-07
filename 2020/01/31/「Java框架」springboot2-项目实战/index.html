@@ -729,8 +729,8 @@
                            @<span class="hljs-title">RequestParam</span><span class="hljs-params">(name=<span class="hljs-string">"state"</span>)</span> String state)</span>&#123;
         <span class="hljs-comment">//创建一个AccessTokenDTO对象，并设置其参数，为我们要去Github中找到指定accessToken的标识。</span>
         AccessTokenDTO accessTokenDTO = <span class="hljs-keyword">new</span> AccessTokenDTO();
-        accessTokenDTO.setClient_id(<span class="hljs-string">"cf638083f29d898f388f"</span>);
-        accessTokenDTO.setClient_secret(<span class="hljs-string">"20d05cfdb24b92f446de3b5d0d72ea06ce963dd0"</span>);
+        accessTokenDTO.setClient_id(<span class="hljs-string">"cf6380ad35d898f388f"</span>);
+        accessTokenDTO.setClient_secret(<span class="hljs-string">"20d05cfdb24b968a9f69ba69463de332b65de963dd0"</span>);
         accessTokenDTO.setCode(code);
         accessTokenDTO.setRedirect_uri(<span class="hljs-string">"http://localhost:8080/callback"</span>);
         accessTokenDTO.setState(state);
@@ -742,6 +742,9 @@
     &#125;
 &#125;</code></pre>
 <p>对于中间设置参数的环节，我们在community目录下新建一个与controller包同级的包名叫dto，其中创建一个类名叫“AccessTokenDTO”。</p>
+<blockquote>
+<p>tips：@Autowired即不用使用X x = new X（）；方法直接用类似变量的方法构建。</p>
+</blockquote>
 <p>其内容如下：</p>
 <pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">package</span> cc.smcoco.community.dto;
 
@@ -862,6 +865,10 @@
 <pre class=" language-hljs java">GithubUser user = githubProvider.getUser(accessToken); <span class="hljs-comment"><code class="language-hljs java">GithubUser user = githubProvider.getUser(accessToken); <span class="hljs-comment">//GithubProvider类中的方法之一</span></code></pre>
 <p>即创建一个GithubUser类的对象，并携带我们刚刚获得的accessToken去取得User信息。user里面的内容即上面GithubUser里创建的参数。</p>
 <p>因此下文我们打印了user.getname()验证是否成功。</p>
+<h3 id="4-将固定值的accesstoken变为可变，配置application-properties"><a href="#4-将固定值的accesstoken变为可变，配置application-properties" class="headerlink" title="4. 将固定值的accesstoken变为可变，配置application.properties"></a>4. 将固定值的accesstoken变为可变，配置application.properties</h3><blockquote>
+<p>tips: @Value(${xxx}) 将下面定义的变量赋值为配置文件的对应值。</p>
+</blockquote>
+<p>配置resources.application.properties</p>
 <hr>
 
             </div>
