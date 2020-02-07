@@ -643,6 +643,42 @@
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a><strong>缺点</strong></h3><p>三角形参数的建立是基于同等strain持续一秒的图中建立的，而在实际应用中，每时刻对应的力均不恒定。时间段的信息无法应用在时刻上，需要确定是否有相关对应关系。</p>
 <hr>
 <h2 id="2020-1-30"><a href="#2020-1-30" class="headerlink" title="2020-1-30"></a>2020-1-30</h2><h2 id="Discriminative-Joint-Probability-Maximum-Mean-Discrepancy-DJP-MMD-for-Domain-Adaptation"><a href="#Discriminative-Joint-Probability-Maximum-Mean-Discrepancy-DJP-MMD-for-Domain-Adaptation" class="headerlink" title="Discriminative Joint Probability Maximum Mean Discrepancy (DJP-MMD) for Domain Adaptation"></a>Discriminative Joint Probability Maximum Mean Discrepancy (DJP-MMD) for Domain Adaptation</h2><p><a href="https://arxiv.org/abs/1912.00320" target="_blank" rel="noopener">Zhang W, Wu D. Transferability versus Discriminability: Joint Probability Distribution Adaptation (JPDA)[J]. arXiv preprint arXiv:1912.00320, 2019.</a></p>
+<hr>
+<h2 id="2020-2-4"><a href="#2020-2-4" class="headerlink" title="2020-2-4"></a>2020-2-4</h2><h2 id="迁移学习简明手册-第九章-深度神经网络-模型迁移"><a href="#迁移学习简明手册-第九章-深度神经网络-模型迁移" class="headerlink" title="迁移学习简明手册-第九章 深度神经网络-模型迁移"></a>迁移学习简明手册-第九章 深度神经网络-模型迁移</h2><h3 id="想法："><a href="#想法：" class="headerlink" title="想法："></a>想法：</h3><p>对于此问题，因为前三层有很好的普适性是针对于A和B两个几乎不相同的类别的数据集的，因此在网络层数提高以后，模型的特殊性就会提高，因而变得不适用于迁移。但是护肘问题我们的源域和目标域的问题和数据是相似度很高的，因此推测模型应保留的层数会不止三层？此处可以进行实验研究，也可以作为研究工作的一部分内容-确定迁移层数。</p>
+<p>对于训练原始模型，使用所有阶段数据和使用迁移数据后统一阶段数据哪个效果会更好？</p>
+<p>学习老化的数据变化函数，推测出而非测量出所有老化时间段的数据特征。在此基础上进行深度迁移。（因为测量数据的时间是有限的） 能不能写一个输入生产日期，然后推测老化程度然后对应相应模型。</p>
+<p>实时迁移的老化模型？非离散片段的好几个模型而是一个随时间变化的动态模型。在护肘功能上加一个时间参数？？加一个全局的计时器，将此参数带入到模型中进行训练。可以把老化问题也考虑进去了。（每个设备老化性能会不会不一样？有的设备老化更快）</p>
+<p>自动化的finetune对不同时间段进行迁移，二次模型训练？主动加入时间参数。</p>
+<p>自动迁移，我给定一个庞大的训练好的模型，和一个自动迁移和训练、存储模型的方法，每次只需要像家长教小孩子一样教几次（给一个少量数据），就可以将已有的知识信息应用到新领域（已有的知识是如何对识别问题的特征进行重点观察之类的前几层的泛化内容）</p>
+<p>动态迁移，即迁移多个模型-》迁移变成连续模型，即在源域与多个目标域之间继续学习得到时间参数，综合成一个综合模型。即问题变成迁移学习：我们有一个大问题的一部分（几个时间段）数据，如何通过自迁移推测出他的所有（所有时间段）部分。用分类问题转迁移化为回归问题。动态模型？？</p>
+<p>不能直接引入时间变量的问题在于，我们取得的数据没有时间。</p>
+<p>问题：我们把数据迁移到每一段上，那我们拿到的护肘还是应用过的护肘，他还是有所老化，并且他对应的哪个阶段也需要确认，使用的时候要换新的护肘，或者说我们根据前面说的推测出下一阶段的模型。</p>
+<h3 id="笔记："><a href="#笔记：" class="headerlink" title="笔记："></a>笔记：</h3><p>深度迁移学习：在学习效果、简便性上有很大优势。</p>
+<h4 id="来自康奈尔大学的-Jason-Yosinski-等人-Yosinski-et-al-2014"><a href="#来自康奈尔大学的-Jason-Yosinski-等人-Yosinski-et-al-2014" class="headerlink" title="来自康奈尔大学的 Jason Yosinski 等人 [Yosinski et al., 2014]"></a>来自康奈尔大学的 Jason Yosinski 等人 [Yosinski et al., 2014]</h4><p>通过实验验证了神经网络随着层数增加，feature会变得越来越specific，因此前几层的feature比较泛化，特征不具体，把前几层固定进行finetune的思路确定。</p>
+<h4 id="finetune："><a href="#finetune：" class="headerlink" title="finetune："></a>finetune：</h4><p>特点：</p>
+<ol>
+<li>节约训练时间成本</li>
+<li>利用大数据集解决数据不足问题，使得模型的鲁棒性更好</li>
+<li>简单</li>
+<li>无法处理数据分布不同的情况</li>
+</ol>
+<h4 id="深度网络自适应"><a href="#深度网络自适应" class="headerlink" title="深度网络自适应"></a>深度网络自适应</h4><p>深度网络损失函数定义多一个后者，即源域目标域距离的损失函数。<br>l = lc(Ds, ys) + λlA(Ds, Dt)</p>
+<p>自适应后进行finetune。</p>
+<h4 id="DDC"><a href="#DDC" class="headerlink" title="DDC"></a>DDC</h4><p>加州大学伯克利分校的 Tzeng 等人 [Tzeng et al., 2014]</p>
+<p>固定前7层，在第8层加入自适应的度量。</p>
+<h4 id="DAN"><a href="#DAN" class="headerlink" title="DAN"></a>DAN</h4><p>来自清华大学的龙明盛等人在 2015 年发表在机器学习顶级会议 ICML 上的 DAN 方法 (Deep Adaptation Networks) [Long et al., 2015a]</p>
+<p> DDC 方法只加入一个自适应层，DAN 方法同时加入了三个自适应层</p>
+<p> 采用了表征能力更好的多核 MMD 度量 (MK-MMD)</p>
+<p> DAN 方法在多个任务上都取得了比 DDC 更好的分类效果。</p>
+<h4 id="拓展DDC"><a href="#拓展DDC" class="headerlink" title="拓展DDC"></a>拓展DDC</h4><p> DDC 的作者 Tzeng 在 2015 年扩展了 DDC 方法，提出了领域和任务同时迁移的方 法 [Tzeng et al., 2015]</p>
+<p> 考虑类别之间的联系，所以提出了还要再加一个 soft label loss。 意思就是在 source 和 target 进行适配的时候，也要根据 source 的类别分布情况来进行调 整 target 的。其实本意和 JDA 差不多。新加的 soft label 的 loss，只 作用于 target 上。</p>
+<h4 id="深度联合分布自适应"><a href="#深度联合分布自适应" class="headerlink" title="深度联合分布自适应"></a>深度联合分布自适应</h4><p>DAN 的作者、清华大学的龙明盛在 2017 年机器学习顶级会议 ICML 上提出了 JAN 方法 (Joint Adaptation Network) [Long et al., 2017]</p>
+<p>对类别的自适应，在深度网络中同时进行联合分布的自适应和对抗学习。</p>
+<h4 id="AdaBN"><a href="#AdaBN" class="headerlink" title="AdaBN"></a>AdaBN</h4><p>加入统计特征的适配</p>
+<p>AdaBN 对比其他方法，实现相当简单。并且，方法本身不带有任何额外的参数。在许 多公开数据集上都取得了很好的效果。</p>
+<hr>
+<p>20191119 NIPS-19 workshop Collaborative Unsupervised Domain Adaptation for Medical Image Diagnosis</p>
+<p>Ensemble DA using noise labels<br>在ensemble中出现noise label时如何处理</p>
 
             </div>
             <hr/>

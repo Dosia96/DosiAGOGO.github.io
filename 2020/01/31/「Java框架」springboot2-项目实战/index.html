@@ -568,13 +568,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Springboot项目实战-社区建立"><a href="#Springboot项目实战-社区建立" class="headerlink" title="Springboot项目实战-社区建立"></a>Springboot项目实战-社区建立</h1><h2 id="配置环境："><a href="#配置环境：" class="headerlink" title="配置环境："></a>配置环境：</h2><p>首先要配置jdk8，maven，下载Idea Ultimate版本，（社区版本打开springboot好像有点麻烦），一般Ultimate版本可以通过学校邮箱注册，免费使用。安装方法可见我的另一篇博客。配置好以后直接新建项目即可使用springboot，本项目是做一个基于Springboot框架的Web社区，详细教程可以参考<a href="https://www.bilibili.com/video/av50200264?p=1" target="_blank" rel="noopener">码酱社区</a>。</p>
+                <h1 id="Springboot项目实战-社区建立"><a href="#Springboot项目实战-社区建立" class="headerlink" title="Springboot项目实战-社区建立"></a>Springboot项目实战-社区建立</h1><h2 id="配置环境："><a href="#配置环境：" class="headerlink" title="配置环境："></a>配置环境：</h2><p>首先要配置jdk8，maven，下载Idea Ultimate版本，（社区版本打开springboot好像有点麻烦），一般Ultimate版本可以通过学校邮箱注册，免费使用。安装方法可见我的另一篇博客。配置好以后直接新建项目即可使用springboot，本项目是做一个基于Springboot框架的Web社区，详细教程可以参考<a href="https://www.bilibili.com/video/av50200264?p=1" target="_blank" rel="noopener">码酱社区</a>。本文也是基于此教程做的整理和归纳。</p>
 <ul>
 <li><p>配置jdk8，maven，Idea Ultimate。</p>
 </li>
 <li><p>安装完成后，点开idea。</p>
 </li>
 </ul>
+<hr>
 <h2 id="创建工程："><a href="#创建工程：" class="headerlink" title="创建工程："></a>创建工程：</h2><ul>
 <li><p>选择new project</p>
 </li>
@@ -602,33 +603,267 @@
 <li><p>name修改为community，点击next</p>
 </li>
 </ul>
-<h2 id="Springboot工程文件简介（基础认知）："><a href="#Springboot工程文件简介（基础认知）：" class="headerlink" title="Springboot工程文件简介（基础认知）："></a>Springboot工程文件简介（基础认知）：</h2><p><img src="/Users/zzg/Desktop/screenshoot01" alt="工程内样图"></p>
+<hr>
+<h2 id="Springboot工程文件简介（基础认知）："><a href="#Springboot工程文件简介（基础认知）：" class="headerlink" title="Springboot工程文件简介（基础认知）："></a>Springboot工程文件简介（基础认知）：</h2><p><img src="/Users/zzg/Desktop/screenshoot01.png" alt="工程内样图"></p>
 <p>图中：</p>
 <ol>
-<li><p>在最根部目录(community)处点击右键 -&gt; mark as -&gt; source root。此时会发现其子目录部分文件夹图标内多了一个圆点。<em>如果要在子目录中创建package，必须设定根目录，否则无选项。</em></p>
+<li><p><strong>根目录：</strong> 在最根部目录(community)处点击右键 -&gt; mark as -&gt; source root。此时会发现其子目录部分文件夹图标内多了一个圆点（package图标）。<em>如果要在子目录中创建package，必须设定根目录，否则无选项。</em></p>
 </li>
-<li><p>子目录中src：表示源码。src.main.java.cc.smcoco.community顺着目录一步步打开可以看到 <strong>CommunityApplication</strong>。这是我们执行的基础文件（在此处点击右键运行此文件即可运行整个工程）</p>
+<li><p><strong>子目录中src：</strong> 表示源码。src.main.java.cc.smcoco.community（用”.”表示目录层级关系）顺着目录一步步打开可以看到 CommunityApplication。这是我们执行的基础文件（在此处点击右键运行此文件即可运行整个工程）。src.main.java.cc.smcoco.community路径用于存放所有主要代码。比如创建的各种类，各种功能代码。</p>
 </li>
-<li><p>src.main.resources中static中存放一些资源文件（css、js等我后来下载的bootstrap文件存放其中），templite文件夹中存放一些模板文件？</p>
+<li><p><strong>src.main.resources（资源目录）：</strong> 其中static中存放一些资源文件（css、js等我后来下载的bootstrap文件存放其中），templite文件夹中存放一些模板文件？</p>
 </li>
-<li><p>community根目录下，pom用于存放依赖。</p>
+<li><p><strong>pom：</strong> community根目录下，pom用于存放依赖。把需要的依赖按固定格式写入后，idea会自动导入、下载需要的资源。</p>
 </li>
 </ol>
+<hr>
 <h2 id="小试牛刀："><a href="#小试牛刀：" class="headerlink" title="小试牛刀："></a>小试牛刀：</h2><p>使用springtboot做一个简单的网页功能。</p>
-<ol>
-<li>在 spring.io/guides 网页中搜索thymeleaf，在maven位置找到<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span>
+<p><strong>功能：</strong> 在网页的地址栏写入</p>
+<pre class=" language-hljs py"><code class="language-hljs py">[http://自己的网址] + ? + name = [某某值]
+# 如：http://community.smcoco.cc?name=dongxia
+# 页面显示：Hello,dongxia!</code></pre>
+
+<p>此网页便会把这个某某值变量传递到网页，在页面中展示出来 “Hello，某某值！”</p>
+<h3 id="01-引入需要功能的maven包"><a href="#01-引入需要功能的maven包" class="headerlink" title="01. 引入需要功能的maven包"></a>01. 引入需要功能的maven包</h3><p>在 spring.io/guides （一下称之为<em>教程</em> ） 网页中搜索thymeleaf（这是我们要用到的功能资源包），在maven位置找到如下格式的代码：</p>
+<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span>
     <span class="hljs-tag"><<span class="hljs-name">groupId</span>></span>org.springframework.boot<span class="hljs-tag"></<span class="hljs-name">groupId</span>></span>
     <span class="hljs-tag"><<span class="hljs-name">artifactId</span>></span>spring-boot-starter-thymeleaf<span class="hljs-tag"></<span class="hljs-name">artifactId</span>></span>
 <span class="hljs-tag"></<span class="hljs-name">dependency</span>></span></code></pre>
-放置于一堆 <pre class=" language-hljs apache"><span class="hljs-section"><code class="language-hljs apache"><span class="hljs-section"><dependency></span></code></pre>
-中，即添加相关依赖。</li>
-</ol>
+<p>放置于工程中pom对应位置，即一堆 </p>
+<pre class=" language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name"><code class="language-hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>></span></code></pre>
+<p>中，即添加相关依赖。</p>
+<p>如图：</p>
+<p><img src="/Users/zzg/Desktop/%E6%88%AA%E5%B1%8F2020-02-03%E4%B8%8B%E5%8D%886.56.05.png" alt="pom中依赖代码的样式"></p>
 <p>此功能实现将所需的资源包加载进pom.xml文件内，idea会自动读取此文件内需要的依赖文件，然后根据弹出的内容选择import，即自动导入好所需要的依赖功能。</p>
 <p>此即为maven的功能和用法。</p>
 <blockquote>
 <p>今后使用其他功能（依赖）时，只要此功能在maven库中有存放，即可在 mvnrepository.com 中找到（或者对应功能的网站有提供maven的引用方法），然后找到如上两个dependency标签包裹的内容，把其内容添加至工程的pom.xml文件对应的dependency位置即可。</p>
 </blockquote>
-<h2 id="导航栏前端制作"><a href="#导航栏前端制作" class="headerlink" title="导航栏前端制作"></a>导航栏前端制作</h2><h2 id="导航栏登录按钮功能实现"><a href="#导航栏登录按钮功能实现" class="headerlink" title="导航栏登录按钮功能实现"></a>导航栏登录按钮功能实现</h2><h3 id="1-获得权限authorize"><a href="#1-获得权限authorize" class="headerlink" title="1. 获得权限authorize"></a>1. 获得权限authorize</h3><h3 id="2-获得access-token"><a href="#2-获得access-token" class="headerlink" title="2. 获得access token"></a>2. 获得access token</h3>
+<h3 id="02-写后端功能"><a href="#02-写后端功能" class="headerlink" title="02:写后端功能"></a>02:写后端功能</h3><p>然后我们继续读<a href="https://spring.io/guides/gs/serving-web-content/" target="_blank" rel="noopener">教程(刚刚的spring里thymeleaf)</a>，找到教程的<strong>controller</strong>部分，然后在src.main.java.cc.smcoco.community(即刚刚说的放各种代码的目录位置)中右键创建一个名叫controller的package，<em>（如果没有package选项，请检查是否设置的source root根目录）</em> 然后在此包下创建一个IndexController <em>（类的命名首字母要大写，方法则不用）</em>。将对应代码写入。如下：</p>
+<pre class=" language-hljs Java"><span class="hljs-keyword"><code class="language-hljs Java"><span class="hljs-keyword">package</span> cc.smcoco.community.controller;
+
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
+<span class="hljs-keyword">import</span> org.springframework.ui.Model;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;
+
+<span class="hljs-meta">@Controller</span> <span class="hljs-comment">//Controller注解（可以理解为标签），指明此类为Controller类别的类（此处存疑，对“@”的用法不是很明确）。</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexController</span> </span>&#123;
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/"</span>) <span class="hljs-comment">//获取路径的注解，“/”表示根目录。</span>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">greeting</span><span class="hljs-params">(@RequestParam(name=<span class="hljs-string">"name"</span>, required=<span class="hljs-keyword">false</span>, defaultValue=<span class="hljs-string">"World"</span>)</span> String name, Model model) </span>&#123;
+		model.addAttribute(<span class="hljs-string">"name"</span>, name);
+		<span class="hljs-keyword">return</span> <span class="hljs-string">"index"</span>; <span class="hljs-comment">//将我们在地址栏中 ？name = 某某值的值提取出来，赋值给name变量，然后传给路径下的index网页。</span>
+	&#125;
+
+&#125;
+\</code></pre>
+
+<h3 id="03-写index网页"><a href="#03-写index网页" class="headerlink" title="03:写index网页"></a>03:写index网页</h3><p>继续读<a href="https://spring.io/guides/gs/serving-web-content/" target="_blank" rel="noopener">教程(刚刚的spring里thymeleaf)</a>，找到其对应greeting.html部分，在src.main.java.resources.templates中创建一个名为index的html文件。（即模板文件），然后写入我们要构建的网页的html代码，即刚刚赋值的部分。<em>（注意，此处我将他对应的greeting修改成了index，因此文件命名也要做改变）</em></p>
+<pre class=" language-hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword"><code class="language-hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">HTML</span>></span>
+<span class="hljs-tag"><<span class="hljs-name">html</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">"http://www.thymeleaf.org"</span>></span>
+<span class="hljs-tag"><<span class="hljs-name">head</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">title</span>></span>Getting Started: Serving Web Content<span class="hljs-tag"></<span class="hljs-name">title</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"text/html; charset=UTF-8"</span> /></span>
+<span class="hljs-tag"></<span class="hljs-name">head</span>></span>
+<span class="hljs-tag"><<span class="hljs-name">body</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">p</span> <span class="hljs-attr">th:text</span>=<span class="hljs-string">"'Hello, ' + $&#123;name&#125; + '!'"</span> /></span>
+    <span class="hljs-comment"><!-- 把name的值放置在网页的对应位置。输出即为 “Hello，某某值！” --></span>
+<span class="hljs-tag"></<span class="hljs-name">body</span>></span>
+<span class="hljs-tag"></<span class="hljs-name">html</span>></span></code></pre>
+
+<h3 id="04-运行并测试"><a href="#04-运行并测试" class="headerlink" title="04:运行并测试"></a>04:运行并测试</h3><p>好了，我们已经把基本的功能代码写完了！现在我们去community里的CommunityApplication右键运行，（或者在idea里右上角的绿色三角运行），然后我们打开浏览器，输入</p>
+<p><a href="http://localhost:8080?name=xxx" target="_blank" rel="noopener">http://localhost:8080?name=xxx</a></p>
+<p><em>（注意：因为我们没有对所写的代码进行部署到服务器上，因此我们通过localhost进行本地测试，“？”后面的内容即为我们对网页执行的操作，即把xxx传给name）</em></p>
+<p>然后按回车搜索网页，网页内容显示为 Hello，xxx！</p>
+<p>成功！<em>（打教程好累啊！！！TAT不过我相信自己能讲出来，可以促进自己好好地整理和了解！也可能会帮到他人？）</em></p>
+<h2 id="导航栏前端制作"><a href="#导航栏前端制作" class="headerlink" title="导航栏前端制作"></a>导航栏前端制作</h2><hr>
+<h2 id="导航栏登录按钮功能实现"><a href="#导航栏登录按钮功能实现" class="headerlink" title="导航栏登录按钮功能实现"></a>导航栏登录按钮功能实现</h2><h3 id="0-思路："><a href="#0-思路：" class="headerlink" title="0. 思路："></a>0. 思路：</h3><ol>
+<li>点击登陆按钮</li>
+<li>社区网页 -&gt; 目标（Github）的callback页面请求authorize</li>
+<li>目标 -&gt; 社区网页 携带code回调</li>
+<li>社区网页 -&gt; 目标（Github）携带code请求access_token</li>
+<li>目标 -&gt; 社区网页user携带access_token</li>
+</ol>
+<p>此处我们选择Github提供的API：</p>
+<ul>
+<li><p>点开<a href="https://github.com/" target="_blank" rel="noopener">Github主页</a>，下拉到最底部，找到API点击进入，找到Building a GitHub App or an OAuth App，并点入。</p>
+</li>
+<li><p>在右侧导航栏中选择Build OAuth Apps并参阅此教程文档。</p>
+</li>
+</ul>
+<h3 id="1-创建OAuth-Apps，获得权限authorize"><a href="#1-创建OAuth-Apps，获得权限authorize" class="headerlink" title="1. 创建OAuth Apps，获得权限authorize"></a>1. 创建OAuth Apps，获得权限authorize</h3><ol>
+<li><p>重新打开一个Github页面，选择Settings，左侧导航栏选择Developer Settings，在OAuth Apps下选择New OAuth Apps</p>
+<p> 输入：</p>
+<p> <strong>name：</strong> Community</p>
+<p> <strong>HomeURL：</strong> <a href="http://community.smcoco.cc（按最初设定的网址来，详见&quot;创建工程&quot;-&gt;" target="_blank" rel="noopener">http://community.smcoco.cc（按最初设定的网址来，详见&quot;创建工程&quot;-&gt;</a> “配置Metadata”）</p>
+<p> <strong>callbackURL</strong> 地址/callback (此处暂时写本地地址<a href="http://localhost:8080/callback" target="_blank" rel="noopener">http://localhost:8080/callback</a>)</p>
+<p> 点击注册。</p>
+</li>
+</ol>
+<h3 id="2-获得access-token"><a href="#2-获得access-token" class="headerlink" title="2. 获得access token"></a>2. 获得access token</h3><ol>
+<li>绑定“登陆”按钮对应的地址，我们在教程“Authorizing OAuth Apps”中可以看到，点击登陆按钮需要跳转到“ <a href="https://github.com/login/oauth/authorize" target="_blank" rel="noopener">https://github.com/login/oauth/authorize</a> ” 地址。<br>在工程中找到templetes.index，在登陆类的地址标签中，输入上述地址，然后输入”?……&amp;……&amp;……”省略号中添加我们地址中要携带的参数，具体如Github提供的教程所述，很多值其实为我们刚刚在Github创建的一个Apps中的参数，找到对应的即可。</li>
+</ol>
+<blockquote>
+<p>此处的意思为，我们要去Github提供的authorize页面，带着我们自己设定的几个参数数值，在其中找到自己的东西并返回。</p>
+</blockquote>
+<ol start="2">
+<li>在community.controller包下，创建一个AuthorizeController类,内容如下：</li>
+</ol>
+<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">package</span> cc.smcoco.community.controller;
+
+<span class="hljs-keyword">import</span> cc.smcoco.community.dto.AccessTokenDTO;
+<span class="hljs-keyword">import</span> cc.smcoco.community.dto.GithubUser;
+<span class="hljs-keyword">import</span> cc.smcoco.community.provider.GithubProvider;
+<span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;
+
+<span class="hljs-meta">@Controller</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AuthorizeController</span> </span>&#123;
+    <span class="hljs-comment">//授权控制器</span>
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> GithubProvider githubProvider;
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/callback"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">Callback</span><span class="hljs-params">(@RequestParam(name=<span class="hljs-string">"code"</span>)</span> String code,
+                           @<span class="hljs-title">RequestParam</span><span class="hljs-params">(name=<span class="hljs-string">"state"</span>)</span> String state)</span>&#123;
+        <span class="hljs-comment">//创建一个AccessTokenDTO对象，并设置其参数，为我们要去Github中找到指定accessToken的标识。</span>
+        AccessTokenDTO accessTokenDTO = <span class="hljs-keyword">new</span> AccessTokenDTO();
+        accessTokenDTO.setClient_id(<span class="hljs-string">"cf638083f29d898f388f"</span>);
+        accessTokenDTO.setClient_secret(<span class="hljs-string">"20d05cfdb24b92f446de3b5d0d72ea06ce963dd0"</span>);
+        accessTokenDTO.setCode(code);
+        accessTokenDTO.setRedirect_uri(<span class="hljs-string">"http://localhost:8080/callback"</span>);
+        accessTokenDTO.setState(state);
+        <span class="hljs-comment">//通过设定好的参数标识，获得accessToken和user信息</span>
+        String accessToken = githubProvider.getAccessToken(accessTokenDTO);<span class="hljs-comment">//GithubProvider类中的方法之一</span>
+        GithubUser user = githubProvider.getUser(accessToken);<span class="hljs-comment">//GithubProvider类中的方法之一</span>
+        System.out.println(user.getName());
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"index"</span>;
+    &#125;
+&#125;</code></pre>
+<p>对于中间设置参数的环节，我们在community目录下新建一个与controller包同级的包名叫dto，其中创建一个类名叫“AccessTokenDTO”。</p>
+<p>其内容如下：</p>
+<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">package</span> cc.smcoco.community.dto;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccessTokenDTO</span>  </span>&#123;
+    <span class="hljs-keyword">private</span> String client_id;
+    <span class="hljs-keyword">private</span> String client_secret;
+    <span class="hljs-keyword">private</span> String code;
+    <span class="hljs-keyword">private</span> String redirect_uri;
+    <span class="hljs-keyword">private</span> String state;
+    <span class="hljs-comment">//其中下面关于上述参数的get/set方法，我们创建好上方参数以后，使用command + N 快捷键选择get/set直接生成即可。</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClient_id</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> client_id;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setClient_id</span><span class="hljs-params">(String client_id)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.client_id = client_id;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getClient_secret</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> client_secret;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setClient_secret</span><span class="hljs-params">(String client_secret)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.client_secret = client_secret;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> code;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCode</span><span class="hljs-params">(String code)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.code = code;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getRedirect_uri</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> redirect_uri;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRedirect_uri</span><span class="hljs-params">(String redirect_uri)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.redirect_uri = redirect_uri;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getState</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> state;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setState</span><span class="hljs-params">(String state)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.state = state;
+    &#125;
+&#125;</code></pre>
+
+<p>对于AuthorizeController下面两个GithubProvider提供的方法，我们在community目录下新建一个与controller包同级的包名叫provider。内容如下：</p>
+<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">package</span> cc.smcoco.community.provider;
+
+<span class="hljs-keyword">import</span> cc.smcoco.community.dto.AccessTokenDTO;
+<span class="hljs-keyword">import</span> cc.smcoco.community.dto.GithubUser;
+<span class="hljs-keyword">import</span> com.alibaba.fastjson.JSON;
+<span class="hljs-keyword">import</span> okhttp3.*;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GithubProvider</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getAccessToken</span><span class="hljs-params">(AccessTokenDTO accessTokenDTO)</span></span>&#123;
+        MediaType mediaType = MediaType.get(<span class="hljs-string">"application/json; charset=utf-8"</span>);
+        OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
+        RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
+        Request request = <span class="hljs-keyword">new</span> Request.Builder()
+                .url(<span class="hljs-string">"https://github.com/login/oauth/access_token"</span>)
+                .post(body)
+                .build();
+        <span class="hljs-keyword">try</span> (Response response = client.newCall(request).execute()) &#123;
+            String string = response.body().string();
+            String token = string.split(<span class="hljs-string">"&"</span>)[<span class="hljs-number">0</span>].split(<span class="hljs-string">"="</span>)[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">return</span> token;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    &#125;
+&#125;</code></pre>
+<p>此处方法可以参阅OkHttp（相关部分的代码我已直接搬运在上方），直接使用这段代码可能会缺失很多东西，我们用option + enter修复一下。需要的依赖也去maven仓库寻找。</p>
+<h3 id="3-使用access-token获得user信息"><a href="#3-使用access-token获得user信息" class="headerlink" title="3. 使用access token获得user信息"></a>3. 使用access token获得user信息</h3><p>在community.dto下创建一个新的类叫GithubUser，其内容如下：</p>
+<pre class=" language-hljs java"><span class="hljs-keyword"><code class="language-hljs java"><span class="hljs-keyword">package</span> cc.smcoco.community.dto;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GithubUser</span> </span>&#123;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> id;
+    <span class="hljs-keyword">private</span> String bio;
+    <span class="hljs-comment">//如下内容也是用command + N 的方法自动创建</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> name;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.name = name;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> id;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">long</span> id)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.id = id;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getBio</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> bio;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setBio</span><span class="hljs-params">(String bio)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.bio = bio;
+    &#125;
+&#125;</code></pre>
+
+<p>这时候我们回看AuthorizeController下的</p>
+<pre class=" language-hljs java">GithubUser user = githubProvider.getUser(accessToken); <span class="hljs-comment"><code class="language-hljs java">GithubUser user = githubProvider.getUser(accessToken); <span class="hljs-comment">//GithubProvider类中的方法之一</span></code></pre>
+<p>即创建一个GithubUser类的对象，并携带我们刚刚获得的accessToken去取得User信息。user里面的内容即上面GithubUser里创建的参数。</p>
+<p>因此下文我们打印了user.getname()验证是否成功。</p>
+<hr>
+
             </div>
             <hr/>
 
@@ -750,7 +985,7 @@
 command + shift + F12
 command + O
 提示错误自动更正 option + enter
-快速创建变量（选中要定义的变量） command + optio
+快速创建变量（选中要定义的变量） option + comman
                         
                     </div>
                     <div class="publish-info">
