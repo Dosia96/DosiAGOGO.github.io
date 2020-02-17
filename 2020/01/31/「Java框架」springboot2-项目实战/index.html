@@ -615,6 +615,8 @@
 </li>
 <li><p><strong>pom：</strong> community根目录下，pom用于存放依赖。把需要的依赖按固定格式写入后，idea会自动导入、下载需要的资源。</p>
 </li>
+<li><p><strong>External Libraries：</strong> 所有依赖包的实际库（pom只是一个类似于目录或者记录的东西）</p>
+</li>
 </ol>
 <hr>
 <h2 id="小试牛刀："><a href="#小试牛刀：" class="headerlink" title="小试牛刀："></a>小试牛刀：</h2><p>使用springtboot做一个简单的网页功能。</p>
@@ -676,7 +678,8 @@
 <p><em>（注意：因为我们没有对所写的代码进行部署到服务器上，因此我们通过localhost进行本地测试，“？”后面的内容即为我们对网页执行的操作，即把xxx传给name）</em></p>
 <p>然后按回车搜索网页，网页内容显示为 Hello，xxx！</p>
 <p>成功！<em>（打教程好累啊！！！TAT不过我相信自己能讲出来，可以促进自己好好地整理和了解！也可能会帮到他人？）</em></p>
-<h2 id="导航栏前端制作"><a href="#导航栏前端制作" class="headerlink" title="导航栏前端制作"></a>导航栏前端制作</h2><hr>
+<h2 id="导航栏前端制作"><a href="#导航栏前端制作" class="headerlink" title="导航栏前端制作"></a>导航栏前端制作</h2><p>直接复制bootstrap中导航栏的实现代码至工程的index中，修改对应部分的名称即可。</p>
+<hr>
 <h2 id="导航栏登录按钮功能实现"><a href="#导航栏登录按钮功能实现" class="headerlink" title="导航栏登录按钮功能实现"></a>导航栏登录按钮功能实现</h2><h3 id="0-思路："><a href="#0-思路：" class="headerlink" title="0. 思路："></a>0. 思路：</h3><ol>
 <li>点击登陆按钮</li>
 <li>社区网页 -&gt; 目标（Github）的callback页面请求authorize</li>
@@ -826,6 +829,22 @@
         &#125;
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
     &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> GithubUser <span class="hljs-title">getUser</span><span class="hljs-params">(String accessToken)</span></span>&#123;
+        OkHttpClient client = <span class="hljs-keyword">new</span> OkHttpClient();
+        Request request = <span class="hljs-keyword">new</span> Request.Builder()
+                .url(<span class="hljs-string">"https://api.github.com/user?access_token="</span>+accessToken)
+                .build();
+        <span class="hljs-keyword">try</span> &#123;
+            Response response = client.newCall(request).execute();
+            String string = response.body().string();
+            GithubUser githubUser = JSON.parseObject(string, GithubUser<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+            <span class="hljs-keyword">return</span> githubUser;
+        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;
+            e.printStackTrace();
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    &#125;
 &#125;</code></pre>
 <p>此处方法可以参阅OkHttp（相关部分的代码我已直接搬运在上方），直接使用这段代码可能会缺失很多东西，我们用option + enter修复一下。需要的依赖也去maven仓库寻找。</p>
 <h3 id="3-使用access-token获得user信息"><a href="#3-使用access-token获得user信息" class="headerlink" title="3. 使用access token获得user信息"></a>3. 使用access token获得user信息</h3><p>在community.dto下创建一个新的类叫GithubUser，其内容如下：</p>
@@ -868,8 +887,133 @@
 <h3 id="4-将固定值的accesstoken变为可变，配置application-properties"><a href="#4-将固定值的accesstoken变为可变，配置application-properties" class="headerlink" title="4. 将固定值的accesstoken变为可变，配置application.properties"></a>4. 将固定值的accesstoken变为可变，配置application.properties</h3><blockquote>
 <p>tips: @Value(${xxx}) 将下面定义的变量赋值为配置文件的对应值。</p>
 </blockquote>
-<p>配置resources.application.properties</p>
+<p>配置resources.application.properties，将需要的参数值写在此文件下。<br>然后使用@Value的语法将配置文件调用，传给private String类型的参数。最后在AuthorizeConrtoller中accessTokenDTO所用部分修改成刚刚赋值的变量。</p>
+<p>例如：application.properties中</p>
+<pre class=" language-hljs stylus">github<span class="hljs-selector-class">.client</span><span class="hljs-selector-class"><code class="language-hljs stylus">github<span class="hljs-selector-class">.client</span><span class="hljs-selector-class">.id</span> = cfa13f2ffa9d89ff2f3f388f
+github<span class="hljs-selector-class">.client</span><span class="hljs-selector-class">.secret</span> = caf2b5acf459f16573da253aefd02xxxxxx
+github<span class="hljs-selector-class">.redirect</span><span class="hljs-selector-class">.uri</span> = http:<span class="hljs-comment">//localhost:8080/callback</span>
+此处值应该设置为自己App中对应的值。</code></pre>
+<p>AuthorizeConrtoller中</p>
+<pre class=" language-hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string"><code class="language-hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;github.client.id&#125;"</span>)
+<span class="hljs-keyword">private</span> String clientId;
+<span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;github.client.secret&#125;"</span>)
+<span class="hljs-keyword">private</span> String clientSecret;
+<span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;github.redirect.uri&#125;"</span>)
+<span class="hljs-keyword">private</span> String redirectUri;
+……
+
+accessTokenDTO.setClient_id(clientId);
+accessTokenDTO.setClient_secret(clientSecret);
+accessTokenDTO.setCode(code);
+accessTokenDTO.setRedirect_uri(redirectUri);
+accessTokenDTO.setState(state);</code></pre>
+
+<p>设置完成后运行测试一下吧～？</p>
+<p>注意做完操作要git一下哦，具体用法可以参考文档<a href="">「git命令」归纳整理</a></p>
 <hr>
+<h2 id="Session和Cookies"><a href="#Session和Cookies" class="headerlink" title="Session和Cookies"></a>Session和Cookies</h2><p>浏览器：客户</p>
+<p>服务器：银行</p>
+<p>Session：银行中存放客户信息的数据库</p>
+<p>Cookies：银行卡</p>
+<p><a href="https://www.bilibili.com/video/av50200264?p=14" target="_blank" rel="noopener">详解</a></p>
+<p>我们通过浏览器访问网页使用Cookies在服务器中Session的对应信息。携带Cookies让服务器记录本人状态。</p>
+<h4 id="目的：点击登陆后，浏览器可以保存我们的登陆状态，刷新后仍然处于登陆状态，（服务器中已经记录了我们的Cookie）"><a href="#目的：点击登陆后，浏览器可以保存我们的登陆状态，刷新后仍然处于登陆状态，（服务器中已经记录了我们的Cookie）" class="headerlink" title="目的：点击登陆后，浏览器可以保存我们的登陆状态，刷新后仍然处于登陆状态，（服务器中已经记录了我们的Cookie）"></a>目的：点击登陆后，浏览器可以保存我们的登陆状态，刷新后仍然处于登陆状态，（服务器中已经记录了我们的Cookie）</h4><h3 id="此时我们修改AuthorizeConrtoller："><a href="#此时我们修改AuthorizeConrtoller：" class="headerlink" title="此时我们修改AuthorizeConrtoller："></a>此时我们修改AuthorizeConrtoller：</h3><p>【注意】只是修改对应部分！！即Callback方法。</p>
+<pre class=" language-hljs java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string"><code class="language-hljs java"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/callback"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">Callback</span><span class="hljs-params">(@RequestParam(name=<span class="hljs-string">"code"</span>)</span> String code,
+                           @<span class="hljs-title">RequestParam</span><span class="hljs-params">(name=<span class="hljs-string">"state"</span>)</span> String state,
+                           HttpServletRequest request)</span>&#123;<span class="hljs-comment">//Spring把上下文中的request写入使用。</span>
+        <span class="hljs-comment">//创建一个AccessTokenDTO对象，并设置其参数，为我们要去Github中找到指定accessToken的标识。</span>
+        AccessTokenDTO accessTokenDTO = <span class="hljs-keyword">new</span> AccessTokenDTO();
+        accessTokenDTO.setClient_id(clientId);
+        accessTokenDTO.setClient_secret(clientSecret);
+        accessTokenDTO.setCode(code);
+        accessTokenDTO.setRedirect_uri(redirectUri);
+        accessTokenDTO.setState(state);
+        <span class="hljs-comment">//通过设定好的参数标识，获得accessToken和user信息</span>
+        String accessToken = githubProvider.getAccessToken(accessTokenDTO);<span class="hljs-comment">//GithubProvider类中的方法之一</span>
+        GithubUser user = githubProvider.getUser(accessToken);<span class="hljs-comment">//GithubProvider类中的方法之一</span>
+        <span class="hljs-keyword">if</span>(user!=<span class="hljs-keyword">null</span>)&#123;
+            <span class="hljs-comment">//登陆成功，写Cookies和session</span>
+            request.getSession().setAttribute(<span class="hljs-string">"user"</span>,user);
+            <span class="hljs-comment">//取得request里的session，将user放入</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"redirect:/"</span>;
+        &#125;
+        <span class="hljs-keyword">else</span>&#123;
+            <span class="hljs-comment">//登陆失败，重新登录</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"redirect:/"</span>;
+        &#125;</code></pre>
+
+<p>解析：增加了一个request，即把上下文的request拿出来。<br>最后的返回改成了判断逻辑，如果有user，则request中获得session并放置user，返回到redirect根目录。request方法将user放入session。 <em>（此处做法可以使浏览器地址无其他繁琐的额外内容，如果只是return index的话，他只重新渲染主页，但地址会有很多额外参数）</em></p>
+<h3 id="修改index前端"><a href="#修改index前端" class="headerlink" title="修改index前端"></a>修改index前端</h3><p>我们去index中增加一个判断逻辑</p>
+<p>如果session.user不为空，即已登陆成功，此时现实“用户名”+下拉菜单。</p>
+<p>如果为空，则现实登陆按钮进行登陆。</p>
+<p>dropdown部分代码如下：注意在</p>
+<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav navbar-nav navbar-right"</span>></span></code></pre>
+<p>类下修改</p>
+<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav navbar-nav navbar-right"</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown"</span> <span class="hljs-attr">th:if</span>=<span class="hljs-string">"$&#123;session.user != null&#125;"</span>></span>
+        <span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"dropdown"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">th:text</span>=<span class="hljs-string">"$&#123;session.user.getName()&#125;"</span>></span> <span class="hljs-tag"><<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"caret"</span>></span><span class="hljs-tag"></<span class="hljs-name">span</span>></span><span class="hljs-tag"></<span class="hljs-name">a</span>></span>
+        <span class="hljs-tag"><<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-menu"</span>></span>
+            <span class="hljs-tag"><<span class="hljs-name">li</span>></span><span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>></span>First<span class="hljs-tag"></<span class="hljs-name">a</span>></span><span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+            <span class="hljs-tag"><<span class="hljs-name">li</span>></span><span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>></span>Second<span class="hljs-tag"></<span class="hljs-name">a</span>></span><span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+            <span class="hljs-tag"><<span class="hljs-name">li</span>></span><span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>></span>Something else here<span class="hljs-tag"></<span class="hljs-name">a</span>></span><span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+            <span class="hljs-tag"><<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"separator"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"divider"</span>></span><span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+            <span class="hljs-tag"><<span class="hljs-name">li</span>></span><span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>></span>Separated link<span class="hljs-tag"></<span class="hljs-name">a</span>></span><span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+        <span class="hljs-tag"></<span class="hljs-name">ul</span>></span>
+    <span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+    <span class="hljs-tag"><<span class="hljs-name">li</span> <span class="hljs-attr">th:if</span>=<span class="hljs-string">"$&#123;session.user == null&#125;"</span>></span>
+        <span class="hljs-tag"><<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://github.com/login/oauth/authorize?client_id=cf638083f29d898f388f&redirect_uri=http://localhost:8080/callback&scope=user&state=1"</span>></span>登陆<span class="hljs-tag"></<span class="hljs-name">a</span>></span>
+    <span class="hljs-tag"></<span class="hljs-name">li</span>></span>
+<span class="hljs-tag"></<span class="hljs-name">ul</span>></span></code></pre>
+<p>解析：我们引用spring的thymeleaf功能（下面代码放在index最前端表引用）<br>html中的session是直接通过thymeleaf调用读取的。</p>
+<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">"http://www.thymeleaf.org"</span>></span></code></pre>
+
+<p>然后使用thymeleaf提供的th:if功能，逻辑很简单。</p>
+<hr>
+<h2 id="SQL-数据库"><a href="#SQL-数据库" class="headerlink" title="SQL 数据库"></a>SQL 数据库</h2><blockquote>
+<p>在此之后的内容目前不作详细更新，因感觉既要跟操作又要记录具体步骤，文字描述也较繁琐，因此需要可以查看码匠笔记，此后将只做大纲性整理和关键知识的归纳。以提高个人效率，如果要再整理详细的教程，大概是自己学成以后可以独立做项目的时候，那时写起来也比较清晰～</p>
+</blockquote>
+<h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><h3 id="为什么要用数据库"><a href="#为什么要用数据库" class="headerlink" title="为什么要用数据库"></a>为什么要用数据库</h3><h3 id="数据库的配置"><a href="#数据库的配置" class="headerlink" title="数据库的配置"></a>数据库的配置</h3><p>使用maven依赖配置数据库，本文使用H2数据库。直接百度H2找到quick start。配置好后idea右侧database使用。</p>
+<h3 id="配置SQL的坑"><a href="#配置SQL的坑" class="headerlink" title="配置SQL的坑"></a>配置SQL的坑</h3><p>教程中使用的是H2数据库，但由于设置问题，会导致配置账号密码错误。而且H2数据库并不好用。因此我们更换为mySQL数据库。</p>
+<ul>
+<li><p>首先安装mysql（去官网下载5.7左右版本）</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/nickchen121/p/11145123.html" target="_blank" rel="noopener">配置mysql</a> &amp; 配置环境变量（内容在上方教程） &amp; <a href="https://blog.csdn.net/weixin_40841731/article/details/89482411" target="_blank" rel="noopener">修改密码</a> <em>这个修改密码我卡了很长时间。因为不知道怎么回事我的mysql默认密码并不是空，我也不知道密码，按照文中内容设置好新的密码。</em></p>
+</li>
+</ul>
+<ul>
+<li><p>在pom.xml里替换为mySQL的数据库依赖（注意版本要在6.0左右不能太新）因为新版本收费并且会导致连接错误。然后依然是使用JDBC，pom中导入JDBC依赖。</p>
+</li>
+<li><p>书写配置文件 </p>
+<p>  application.properties:</p>
+<pre class=" language-hljs java">spring.datasource.url=jdbc:mysql:<span class="hljs-comment"><code class="language-hljs java">spring.datasource.url=jdbc:mysql:<span class="hljs-comment">//localhost:3306?serverTimezone=UTC</span>
+spring.datasource.username=root
+spring.datasource.password=<span class="hljs-number">123456</span>(你的密码？这里我也不清楚 试一下)
+spring.datasource.driver-<span class="hljs-class"><span class="hljs-keyword">class</span>-<span class="hljs-title">name</span></span>=com.mysql.jdbc.Drive</code></pre>
+</li>
+<li><p>在idea右侧点击database，创建一个mySQL数据库，地址为默认url加”?serverTimezone=UTC”即可，原因为时区问题导致连接失败。账号密码为上方所述。点击test，成功！（账号默认为root）</p>
+</li>
+</ul>
+<p><em>【解析】安装的mysql为sql的文件，数据库实体内容就在这里。配置的sql的maven为数据库需要用的一些方法（我们之前也讲过，一些工具类似的东西，类、函数包装在里面）搭配JDBA的maven可以快速建立连接的协议啊配置啊很多麻烦的东西。然后idea右侧的新建，是一个操作数据库的工具，通过输入本地端口的地址和账号密码，让这个工具连接到我们数据库可以进行操作，如果没有输入好这个地址，那么即使idea 的database中有很多数据库可选，但是都没有实际内容。</em></p>
+<p>我们使用的是mybatis的功能来读写和调用数据库，而工程怎么匹配到我们自己的数据库，用的是jdbc，账号密码和端口对应配置文件 。</p>
+<h3 id="配置完成使用数据库实现保持登陆"><a href="#配置完成使用数据库实现保持登陆" class="headerlink" title="配置完成使用数据库实现保持登陆"></a>配置完成使用数据库实现保持登陆</h3><p>因为我们把获得的用户信息存到了数据库，因此可以拿数据库识别这个用户信息的人是否已经登录过了。用数据库的存储代替session的功能。</p>
+<hr>
+<h2 id="Cookie的写入"><a href="#Cookie的写入" class="headerlink" title="Cookie的写入"></a>Cookie的写入</h2><p>使用response方法将取得的token写入cookie，cookie可以在网页检测（F12）的Application的cookie中查看到。</p>
+<blockquote>
+<p>@Select 注解的感觉就是 后面跟的双引号里的内容就是这个注解自动写双引号内容的sql语句。因此后面是双引号文本。</p>
+</blockquote>
+<p>在/IndexController中我们写使用/userMapper里的方法findByToken，通过token找到对应User。然后通过HttpServletRequest里request.getCookies()获得一串cookies（cookies有很多，我们要遍历找到名为token的cookie并getValue）</p>
+<p><em>为什么名为token，因为我们在/AuthorizeController里response.addcookie里把cookie命名为了token，内容为token的值，已赋值。</em></p>
+<blockquote>
+<p>#{..}的意义就是把被注解的类里的形参赋值过来。可以看作一个占位符。如果要拿方法里的形参，则需要在形参前加@Param注解“形参名”</p>
+</blockquote>
+<p><em>我们通过authorize token等几个“握手”步骤已经获得了对应接口网站的user信息，并写如了session和数据库。通过session判断页面展示（因为页面可以取得session），通过cookie对比数据库判读是否保存功能。（有可能会写比如定期删除数据库的内容，这样就保持登陆几天仅仅）</em></p>
+<hr>
+<h2 id="Flyway"><a href="#Flyway" class="headerlink" title="Flyway"></a>Flyway</h2><p>一个集成工具，用于解决如下问题：</p>
+<p>每次团队中其中一个人改动了数据库，所有人都要在自己数据库上执行相应的代码工作，就会相当繁琐。Flyway解决了此类问题。–migration（迁移）将团队中多人的数据库版本整合为一个。</p>
+<blockquote>
+<p>因为是对应H2数据库的 而且暂时用不到多人合作，所以我没有进行操作 P19</p>
+</blockquote>
 
             </div>
             <hr/>
