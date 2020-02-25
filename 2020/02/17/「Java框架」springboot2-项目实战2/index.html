@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「Java框架」springboot2-项目实战2, Hello,I&#39;m Dosia">
-    <meta name="description" content="「Java框架」springboot2-项目实战2 | Hello,I&#39;m Dosia">
+    <meta name="description" content="SpringBoot项目实战2-项目功能丰富增加publish页面（html的书写）我们在/templates里复制index.html创建一个publish.html
+CSS样式.classname &amp;#123;
+    样式内容
+   ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -568,7 +571,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="SpringBoot项目实战2-项目功能丰富"><a href="#SpringBoot项目实战2-项目功能丰富" class="headerlink" title="SpringBoot项目实战2-项目功能丰富"></a>SpringBoot项目实战2-项目功能丰富</h1><h2 id="增加publish页面（html的书写）"><a href="#增加publish页面（html的书写）" class="headerlink" title="增加publish页面（html的书写）"></a>增加publish页面（html的书写）</h2><p>我们在/templates里复制index.html创建一个publish.html</p>
+<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><pre class=" language-hljs css"><code class="language-hljs css">.classname &#123;
+    样式内容
+    样式内容
+&#125;</code></pre>
+<p>用户首先在html页面前端使用引入css文件</p>
+<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/xxx.css"</span>></span></code></pre>
+
+<p>然后引用时，用户在对应html类后添加空格 + css类名就可以把整个类的样式引入。</p>
+<hr>
+<p>而</p>
+<pre class=" language-hljs css"><code class="language-hljs css">body &#123;
+    样式内容
+&#125;</code></pre>
+<p>则表示对整体使用的样式，（主体），注意，此处前面没有”.”和前面不同。</p>
+<hr>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>通过html</p>
+<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>></span></code></pre>
+<p>标签来设置网页文字的链接跳转（如图跳转到/）</p>
+<p>class可以无限引用，只要在同一个标签内，就可以往里添加各种内容，内容即为增加此标签的辅助功能，就像添加插件一样。class此处可以放样式类。</p>
+<hr>
+<h2 id="判断以及报错处理"><a href="#判断以及报错处理" class="headerlink" title="判断以及报错处理"></a>判断以及报错处理</h2><p>通过判断语句，加上model的传值实现前后端联系。</p>
+<pre class=" language-hljs java">model.addAttribute(<span class="hljs-string"><code class="language-hljs java">model.addAttribute(<span class="hljs-string">"obj"</span>, 内容);</code></pre>
+<p>将内容传递给obj。然后前端可以在 ${obj} 内找到对应的内容。<br>然后我们使用前端的if判断，对应不同情况的标签展示。</p>
+
             </div>
             <hr/>
 
