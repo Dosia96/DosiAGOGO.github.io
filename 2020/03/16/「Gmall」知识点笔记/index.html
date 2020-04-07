@@ -4,11 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「Java框架」springboot2-项目实战2, Hello,I&#39;m Dosia">
-    <meta name="description" content="SpringBoot项目实战2-项目功能丰富增加publish页面（html的书写）我们在/templates里复制index.html创建一个publish.html
-CSS样式.classname &amp;#123;
-    样式内容
-   ">
+    <meta name="keywords" content="「Gmall」知识点笔记, Hello,I&#39;m Dosia">
+    <meta name="description" content="SpringBoot注解@RestController@RequestMapping@EnableAutoConfigration@GetMapping@ComponentScan@SpringBootConfiguration本质是@Co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +13,7 @@ CSS样式.classname &amp;#123;
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Java框架」springboot2-项目实战2 | Hello,I&#39;m Dosia</title>
+    <title>「Gmall」知识点笔记 | Hello,I&#39;m Dosia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -425,7 +422,7 @@ CSS样式.classname &amp;#123;
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「Java框架」springboot2-项目实战2</h1>
+                    <h1 class="description center-align post-title">「Gmall」知识点笔记</h1>
                 </div>
             </div>
         </div>
@@ -554,7 +551,7 @@ CSS样式.classname &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-17
+                    2020-03-16
                 </div>
                 
 
@@ -571,39 +568,27 @@ CSS样式.classname &amp;#123;
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringBoot项目实战2-项目功能丰富"><a href="#SpringBoot项目实战2-项目功能丰富" class="headerlink" title="SpringBoot项目实战2-项目功能丰富"></a>SpringBoot项目实战2-项目功能丰富</h1><h2 id="增加publish页面（html的书写）"><a href="#增加publish页面（html的书写）" class="headerlink" title="增加publish页面（html的书写）"></a>增加publish页面（html的书写）</h2><p>我们在/templates里复制index.html创建一个publish.html</p>
-<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><pre class=" language-hljs css"><code class="language-hljs css">.classname &#123;
-    样式内容
-    样式内容
-&#125;</code></pre>
-<p>用户首先在html页面前端使用引入css文件</p>
-<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/xxx.css"</span>></span></code></pre>
-
-<p>然后引用时，用户在对应html类后添加空格 + css类名就可以把整个类的样式引入。</p>
+                <h1 id="SpringBoot注解"><a href="#SpringBoot注解" class="headerlink" title="SpringBoot注解"></a>SpringBoot注解</h1><h2 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h2><h2 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h2><h2 id="EnableAutoConfigration"><a href="#EnableAutoConfigration" class="headerlink" title="@EnableAutoConfigration"></a>@EnableAutoConfigration</h2><h2 id="GetMapping"><a href="#GetMapping" class="headerlink" title="@GetMapping"></a>@GetMapping</h2><h2 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h2><h2 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h2><p>本质是@Configuration </p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><p>声明一个类为java配置，代替xml文件</p>
+<h2 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h2><p>注入属性</p>
+<h2 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h2><p>声明在方法上，将方法的返回值加入Bean容器</p>
+<h2 id="PropertySource"><a href="#PropertySource" class="headerlink" title="@PropertySource"></a>@PropertySource</h2><p>指定外部属性文件(配置文件) //将外面设置的配置文件通过此注解指定。</p>
+<h2 id="SpringBootApplication（springboot升级版）"><a href="#SpringBootApplication（springboot升级版）" class="headerlink" title="@SpringBootApplication（springboot升级版）"></a><strong>@SpringBootApplication</strong>（springboot升级版）</h2><p>组合注解，相当于 @EnableAutoConfigration + @ComponentScan + @SpringBootConfiguration </p>
+<p>应用于：SpringApplication，将其所需要的各种配置组合使用。</p>
+<h2 id="AutoWired"><a href="#AutoWired" class="headerlink" title="@AutoWired"></a>@AutoWired</h2><h2 id="ConfigurationProperties-（springboot升级版）"><a href="#ConfigurationProperties-（springboot升级版）" class="headerlink" title="@ConfigurationProperties （springboot升级版）"></a><strong>@ConfigurationProperties</strong> （springboot升级版）</h2><p>@ConfigurationProperties（prefix = “”）读取统一配置文件application.properties中的某部分前缀的所有内容，即一类配置文件。<br>这中设置属性即不需要@Value。 </p>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><h2 id="01简要的返回值"><a href="#01简要的返回值" class="headerlink" title="01简要的返回值"></a>01简要的返回值</h2><p>引导类：SpringBoot的程序入口为main函数中的SpingApplication.run方法。会自动的搜索读取项目中的各种组件，如Controller。然后例如输入一个地址，就会触发Controller。</p>
+<h2 id="02java配置类"><a href="#02java配置类" class="headerlink" title="02java配置类"></a>02java配置类</h2><ul>
+<li><p><strong>JdbcConfiguration</strong> config文件 - @Configuration - Class</p>
+<p>  书写new、set方法。用于各种配置设置。使用@PropertySource引入配置文件。</p>
+</li>
+<li><p><strong>jdbc.properties</strong> - Resource - 配置文件 </p>
+</li>
+</ul>
 <hr>
-<p>而</p>
-<pre class=" language-hljs css"><code class="language-hljs css">body &#123;
-    样式内容
-&#125;</code></pre>
-<p>则表示对整体使用的样式，（主体），注意，此处前面没有”.”和前面不同。</p>
-<hr>
-<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>通过html</p>
-<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>></span></code></pre>
-<p>标签来设置网页文字的链接跳转（如图跳转到/）</p>
-<p>class可以无限引用，只要在同一个标签内，就可以往里添加各种内容，内容即为增加此标签的辅助功能，就像添加插件一样。class此处可以放样式类。</p>
-<hr>
-<h2 id="判断以及报错处理"><a href="#判断以及报错处理" class="headerlink" title="判断以及报错处理"></a>判断以及报错处理</h2><p>通过判断语句，加上model的传值实现前后端联系。</p>
-<pre class=" language-hljs java">model.addAttribute(<span class="hljs-string"><code class="language-hljs java">model.addAttribute(<span class="hljs-string">"obj"</span>, 内容);</code></pre>
-<p>将内容传递给obj。然后前端可以在 ${obj} 内找到对应的内容。<br>然后我们使用前端的if判断，对应不同情况的标签展示。</p>
-<hr>
-<h2 id="HTML-Springboot"><a href="#HTML-Springboot" class="headerlink" title="HTML Springboot"></a>HTML Springboot</h2><pre class=" language-hljs html"><code class="language-hljs html">$&#123;xxx&#125;</code></pre>
-<p>xxx为后段model.addAttribute传入的变量。这个值是可变的，所以用此符号代表。</p>
-<pre class=" language-hljs html"><code class="language-hljs html">@&#123;/(page=$&#123;xxx&#125;)&#125;</code></pre>
-<p><em>显示在地址栏的内容？</em></p>
-<hr>
-<h2 id="HTML-模板化封装重复内容"><a href="#HTML-模板化封装重复内容" class="headerlink" title="HTML 模板化封装重复内容"></a>HTML 模板化封装重复内容</h2><p>thymeleaf里的内容</p>
-<h1 id="SpringBoot注解"><a href="#SpringBoot注解" class="headerlink" title="SpringBoot注解"></a>SpringBoot注解</h1><ul>
-<li>@GetMapping</li>
+<p>(升级版)</p>
+<ul>
+<li><strong>JdbcProperties</strong> - 将数据库参数放到统一位置避免每个文件都要读取一遍的冗余     @ConfigurationProperties</li>
+<li><strong>application.properties</strong> 替代 jdbc.properties（配置文件，通过前缀区分） </li>
 </ul>
 
             </div>
@@ -630,7 +615,7 @@ CSS样式.classname &amp;#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dosiagogo.githun.io/2020/02/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8Dspringboot2-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982/">http://dosiagogo.githun.io/2020/02/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8Dspringboot2-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982/</a>
+                    <a href="http://dosiagogo.githun.io/2020/03/16/%E3%80%8CGmall%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/">http://dosiagogo.githun.io/2020/03/16/%E3%80%8CGmall%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9%E7%AC%94%E8%AE%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -710,6 +695,45 @@ CSS样式.classname &amp;#123;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/03/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8DSSM%E7%AC%94%E8%AE%B0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Java框架」SSM笔记">
+                        
+                        <span class="card-title">「Java框架」SSM笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            事件当浏览器组件与用户发生交互成为一个事件。
+
+java写底层逻辑，将传递过来的数据如何变化，变化结果进行运算，对数据进行处理（计算、存取），然后传递到前端做一些外观可见的变化，比如哪里高亮，哪里显示什么。因此java的基础逻辑算法很重要，
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            zzg-dongxia
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/02/23/%E3%80%8C%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86%E3%80%8D%E5%AE%9D%E5%BA%93/">
                     <div class="card-image">
                         
@@ -731,48 +755,8 @@ html教程
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            zzg-dongxia
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/02/09/%E3%80%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8DPython%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="「机器学习」Python常见函数整理">
-                        
-                        <span class="card-title">「机器学习」Python常见函数整理</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Python基本内容
-iter(object[, sentinel])
-object – 支持迭代的集合对象。
-sentinel – 如果传递了第二个参数，则参数 object 必须是一个可调用的对象（如，函数），此时，iter 创建了一个
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-23
                             </span>
                         <span class="publish-author">
                             

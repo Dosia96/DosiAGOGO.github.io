@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「Java框架」springboot2-项目实战2, Hello,I&#39;m Dosia">
-    <meta name="description" content="SpringBoot项目实战2-项目功能丰富增加publish页面（html的书写）我们在/templates里复制index.html创建一个publish.html
-CSS样式.classname &amp;#123;
-    样式内容
-   ">
+    <meta name="keywords" content="「JavaWeb」知识点, Hello,I&#39;m Dosia">
+    <meta name="description" content="01 Tomcat(一) 什么是TomcatTomcat是Apache旗下的一款服务器。
+我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@ CSS样式.classname &amp;#123;
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Java框架」springboot2-项目实战2 | Hello,I&#39;m Dosia</title>
+    <title>「JavaWeb」知识点 | Hello,I&#39;m Dosia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +418,12 @@ CSS样式.classname &amp;#123;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「Java框架」springboot2-项目实战2</h1>
+                    <h1 class="description center-align post-title">「JavaWeb」知识点</h1>
                 </div>
             </div>
         </div>
@@ -554,7 +552,7 @@ CSS样式.classname &amp;#123;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-17
+                    2020-04-07
                 </div>
                 
 
@@ -571,40 +569,28 @@ CSS样式.classname &amp;#123;
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringBoot项目实战2-项目功能丰富"><a href="#SpringBoot项目实战2-项目功能丰富" class="headerlink" title="SpringBoot项目实战2-项目功能丰富"></a>SpringBoot项目实战2-项目功能丰富</h1><h2 id="增加publish页面（html的书写）"><a href="#增加publish页面（html的书写）" class="headerlink" title="增加publish页面（html的书写）"></a>增加publish页面（html的书写）</h2><p>我们在/templates里复制index.html创建一个publish.html</p>
-<h2 id="CSS样式"><a href="#CSS样式" class="headerlink" title="CSS样式"></a>CSS样式</h2><pre class=" language-hljs css"><code class="language-hljs css">.classname &#123;
-    样式内容
-    样式内容
-&#125;</code></pre>
-<p>用户首先在html页面前端使用引入css文件</p>
-<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/xxx.css"</span>></span></code></pre>
-
-<p>然后引用时，用户在对应html类后添加空格 + css类名就可以把整个类的样式引入。</p>
-<hr>
-<p>而</p>
-<pre class=" language-hljs css"><code class="language-hljs css">body &#123;
-    样式内容
-&#125;</code></pre>
-<p>则表示对整体使用的样式，（主体），注意，此处前面没有”.”和前面不同。</p>
-<hr>
-<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>通过html</p>
-<pre class=" language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>物体名字<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>></span></code></pre>
-<p>标签来设置网页文字的链接跳转（如图跳转到/）</p>
-<p>class可以无限引用，只要在同一个标签内，就可以往里添加各种内容，内容即为增加此标签的辅助功能，就像添加插件一样。class此处可以放样式类。</p>
-<hr>
-<h2 id="判断以及报错处理"><a href="#判断以及报错处理" class="headerlink" title="判断以及报错处理"></a>判断以及报错处理</h2><p>通过判断语句，加上model的传值实现前后端联系。</p>
-<pre class=" language-hljs java">model.addAttribute(<span class="hljs-string"><code class="language-hljs java">model.addAttribute(<span class="hljs-string">"obj"</span>, 内容);</code></pre>
-<p>将内容传递给obj。然后前端可以在 ${obj} 内找到对应的内容。<br>然后我们使用前端的if判断，对应不同情况的标签展示。</p>
-<hr>
-<h2 id="HTML-Springboot"><a href="#HTML-Springboot" class="headerlink" title="HTML Springboot"></a>HTML Springboot</h2><pre class=" language-hljs html"><code class="language-hljs html">$&#123;xxx&#125;</code></pre>
-<p>xxx为后段model.addAttribute传入的变量。这个值是可变的，所以用此符号代表。</p>
-<pre class=" language-hljs html"><code class="language-hljs html">@&#123;/(page=$&#123;xxx&#125;)&#125;</code></pre>
-<p><em>显示在地址栏的内容？</em></p>
-<hr>
-<h2 id="HTML-模板化封装重复内容"><a href="#HTML-模板化封装重复内容" class="headerlink" title="HTML 模板化封装重复内容"></a>HTML 模板化封装重复内容</h2><p>thymeleaf里的内容</p>
-<h1 id="SpringBoot注解"><a href="#SpringBoot注解" class="headerlink" title="SpringBoot注解"></a>SpringBoot注解</h1><ul>
-<li>@GetMapping</li>
+                <h1 id="01-Tomcat"><a href="#01-Tomcat" class="headerlink" title="01 Tomcat"></a>01 Tomcat</h1><h2 id="一-什么是Tomcat"><a href="#一-什么是Tomcat" class="headerlink" title="(一) 什么是Tomcat"></a>(一) 什么是Tomcat</h2><p>Tomcat是Apache旗下的一款<strong>服务器</strong>。</p>
+<p>我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但它也仅仅在本地访问，因此我们需要一个服务器来接受处理和发送给客户端数据。</p>
+<blockquote>
+<p>例如，我在一个HTML表单中写了自己的账号密码，点击提交，可以跳转到“成功”页面，但是，注册的数据并不能传到网站的总部（服务器）进行存取。因此我们需要一个叫做<strong>服务器</strong>的东西来实现无数个客户端（静态网页）与一个中心的交互联络。而我们本地用浏览器打开的页面则被称作<strong>客户端</strong>。</p>
+</blockquote>
+<p>客户端相关的代码则使用java以及相关框架实现。</p>
+<h2 id="（二）-Tomcat的文件结构"><a href="#（二）-Tomcat的文件结构" class="headerlink" title="（二） Tomcat的文件结构"></a>（二） Tomcat的文件结构</h2><h2 id="（三）-IDE中装载Tomcat"><a href="#（三）-IDE中装载Tomcat" class="headerlink" title="（三） IDE中装载Tomcat"></a>（三） IDE中装载Tomcat</h2><p>加载Tomcat后会拷贝Tomcat文件夹中的副本。自己的资源也要放在Tomcat对应的文件夹下。如静态资源、代码、库、配置文件等都有指定的位置。</p>
+<h1 id="02-Http"><a href="#02-Http" class="headerlink" title="02 Http"></a>02 Http</h1><h2 id="（一）什么是Http"><a href="#（一）什么是Http" class="headerlink" title="（一）什么是Http"></a>（一）什么是Http</h2><p>Http是超文本传输<strong>协议</strong>。规定了客户端向服务器发送<strong>请求（Request）</strong> 时<strong>报文</strong>的格式，也规定了服务器向客户端返回<strong>响应(Response)</strong> 时报文的格式。</p>
+<h2 id="（二）Request与Response的查看"><a href="#（二）Request与Response的查看" class="headerlink" title="（二）Request与Response的查看"></a>（二）Request与Response的查看</h2><p>在浏览器（如Chrome）的”检查” -&gt; “Network”中查看。</p>
+<h2 id="（三）Request"><a href="#（三）Request" class="headerlink" title="（三）Request"></a>（三）Request</h2><h3 id="报文格式：资料"><a href="#报文格式：资料" class="headerlink" title="报文格式：资料"></a>报文格式：<a href="">资料</a></h3><h3 id="分类：Get-Post"><a href="#分类：Get-Post" class="headerlink" title="分类：Get / Post"></a>分类：Get / Post</h3><p>Get：在浏览器Url中就显示请求参数。<em>传递内容少</em>。</p>
+<p>Post：在传送的报文中的request body放入传递的请求内容。<em>传递内容多</em>。</p>
+<h1 id="03-Servlet"><a href="#03-Servlet" class="headerlink" title="03 Servlet"></a>03 Servlet</h1><h2 id="（一）什么是Servlet"><a href="#（一）什么是Servlet" class="headerlink" title="（一）什么是Servlet"></a>（一）什么是Servlet</h2><p>Servlet是Servlet容器下（例如Tomcat）的一个接口，他是客户端与服务器的中间层，作用是处理客户端发来的请求并作出响应。</p>
+<p>在服务器下写Servlet方法无需创建对象。</p>
+<h2 id="（二）servlet写法"><a href="#（二）servlet写法" class="headerlink" title="（二）servlet写法"></a>（二）servlet写法</h2><ul>
+<li><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>原生Servlet会自动生成四个方法：init, getServletConfig, service, getServletInfo, destroy</p>
+</li>
+<li><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在web.xml中配置Servlet，需要配置两块内容，一个是方法的包位置/路径，一个是请求的url。</p>
+</li>
+<li><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>当url被点击，此请求传递过来，在未找到对应url的静态资源的情况下，找到配置文件中对应的部分，接着通过配置找到方法体，执行相应的Servlet方法。</p>
+</li>
 </ul>
+<h1 id="04-HttpServlet"><a href="#04-HttpServlet" class="headerlink" title="04 HttpServlet"></a>04 HttpServlet</h1><h2 id="（一）什么是HttpServlet"><a href="#（一）什么是HttpServlet" class="headerlink" title="（一）什么是HttpServlet"></a>（一）什么是HttpServlet</h2><p>HttpServlet是对Servlet的（多次）封装。最终汇总为doGet与doPost两个方法分别处理get与post请求。</p>
 
             </div>
             <hr/>
@@ -630,7 +616,7 @@ CSS样式.classname &amp;#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dosiagogo.githun.io/2020/02/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8Dspringboot2-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982/">http://dosiagogo.githun.io/2020/02/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8Dspringboot2-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%982/</a>
+                    <a href="http://dosiagogo.githun.io/2020/04/07/%E3%80%8CJavaWeb%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">http://dosiagogo.githun.io/2020/04/07/%E3%80%8CJavaWeb%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,34 +692,31 @@ CSS样式.classname &amp;#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/23/%E3%80%8C%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86%E3%80%8D%E5%AE%9D%E5%BA%93/">
+                <a href="/2020/04/07/%E3%80%8CJavaWeb%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="「资料整理」宝库">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="「JavaWeb」知识点">
                         
-                        <span class="card-title">「资料整理」宝库</span>
+                        <span class="card-title">「JavaWeb」知识点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            资料文献整理
-TensorFlow保存模型和读取模型-代码解读
-python细节的文档/很多特殊语法的讲解，新手向 _En
-html教程
-
-
+                            01 Tomcat(一) 什么是TomcatTomcat是Apache旗下的一款服务器。
+我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -742,6 +725,7 @@ html教程
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -752,27 +736,26 @@ html教程
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/09/%E3%80%8C%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8DPython%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">
+                <a href="/2020/03/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8DSSM%E7%AC%94%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="「机器学习」Python常见函数整理">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Java框架」SSM笔记">
                         
-                        <span class="card-title">「机器学习」Python常见函数整理</span>
+                        <span class="card-title">「Java框架」SSM笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python基本内容
-iter(object[, sentinel])
-object – 支持迭代的集合对象。
-sentinel – 如果传递了第二个参数，则参数 object 必须是一个可调用的对象（如，函数），此时，iter 创建了一个
+                            事件当浏览器组件与用户发生交互成为一个事件。
+
+java写底层逻辑，将传递过来的数据如何变化，变化结果进行运算，对数据进行处理（计算、存取），然后传递到前端做一些外观可见的变化，比如哪里高亮，哪里显示什么。因此java的基础逻辑算法很重要，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-17
                             </span>
                         <span class="publish-author">
                             

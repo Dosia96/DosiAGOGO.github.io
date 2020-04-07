@@ -580,8 +580,51 @@ sentinel – 如果传递了第二个参数，则参数 object 必须是一个�
 </li>
 </ul>
 </li>
+<li><h2 id="super-type-object-or-type"><a href="#super-type-object-or-type" class="headerlink" title="super(type[, object-or-type])"></a>super(type[, object-or-type])</h2><ul>
+<li><a href="https://www.runoob.com/python/python-func-super.html" target="_blank" rel="noopener">资料</a></li>
+<li>type – 类。</li>
+<li>object-or-type – 类，一般是 self<blockquote>
+<p>一般B类继承A类我们都会在构造B时写成 class B（A），括号中即为父类。但是要调用父类中的内容的时候，我们使用super方法，super（B）即跳转到B的父类上，即A。</p>
+</blockquote>
+</li>
 </ul>
-<h1 id="Numpy1"><a href="#Numpy1" class="headerlink" title="Numpy1"></a>Numpy1</h1><h1 id="Scipy"><a href="#Scipy" class="headerlink" title="Scipy"></a>Scipy</h1><h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1>
+</li>
+<li><h2 id="str-format"><a href="#str-format" class="headerlink" title="str.format()"></a>str.format()</h2><ul>
+<li><p>通过这个函数同样可以对字符串进行格式化处理。在format()函数中，使用“{}”符号来当作格式化操作符。分为两半部分，前面通过“{}”表明<strong>输出的格式</strong>（内容、顺序、精确度等），format后括号内容表示<strong>输出的内容</strong>。</p>
+</li>
+<li><p>使用.format调整输出占位内容（可变）顺序，例如：</p>
+<pre class=" language-hljs py"><span class="hljs-string">"&#123;1&#125; &#123;0&#125; &#123;1&#125;"</span>.format(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>)  <span class="hljs-comment"><code class="language-hljs py"><span class="hljs-string">"&#123;1&#125; &#123;0&#125; &#123;1&#125;"</span>.format(<span class="hljs-string">"hello"</span>, <span class="hljs-string">"world"</span>)  <span class="hljs-comment"># 设置指定位置</span>
+<span class="hljs-string">'world hello world'</span></code></pre>
+<p>前半部分为三个值的输入，三个值对应其中括号所写序列，对应后面format括号内数据的内容。</p>
+</li>
+<li><p>使用.format进行数字格式化，例如：</p>
+<pre class=" language-hljs py">print(<span class="hljs-string">"&#123;:.2f&#125;"</span>.format(<span class="hljs-number"><code class="language-hljs py">print(<span class="hljs-string">"&#123;:.2f&#125;"</span>.format(<span class="hljs-number">3.1415926</span>))</code></pre>
+<p>“：”表示format后面的内容，.2f表示保留两位小数点浮点数。 </p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><ul>
+<li><h2 id="numpy-asarray-a"><a href="#numpy-asarray-a" class="headerlink" title="numpy.asarray(a)"></a>numpy.asarray(a)</h2><p>  将输入数据a转化为array（数组）形式。</p>
+  <pre class=" language-hljs angelscript">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number"><code class="language-hljs angelscript">&gt;&gt;&gt; a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+>>> np.asarray(a)
+<span class="hljs-built_in">array</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])</code></pre>
+
+</li>
+</ul>
+<h1 id="Scipy"><a href="#Scipy" class="headerlink" title="Scipy"></a>Scipy</h1><h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><ul>
+<li><h2 id="optimizer-zero-grad"><a href="#optimizer-zero-grad" class="headerlink" title="optimizer.zero_grad()"></a>optimizer.zero_grad()</h2>  把梯度置为0，即清空梯度，方便进行下面的梯度下降。</li>
+</ul>
+<h1 id="sklearn"><a href="#sklearn" class="headerlink" title="sklearn"></a>sklearn</h1><ul>
+<li><h2 id="train-test-split"><a href="#train-test-split" class="headerlink" title="train_test_split"></a>train_test_split</h2><p>  用于将矩阵随机划分为训练子集和测试子集，并返回划分好的训练集测试集样本和训练集测试集标签。</p>
+</li>
+</ul>
+<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><ul>
+<li><h2 id="sess-run-1-2-3-xxx-4-xxx-5-xxx"><a href="#sess-run-1-2-3-xxx-4-xxx-5-xxx" class="headerlink" title="sess.run([1,2],{3:xxx,4:xxx,5:xxx})"></a>sess.run([1,2],{3:xxx,4:xxx,5:xxx})</h2><p>  用于将一些值feed进网络中，把要feed的值输入进网络，输出网络中的部分参数。</p>
+<p>  语法：[1,2]即网络中的名为1，2（……）等的参数，提取出来。{3,4,5}即将3，4，5分别赋值给网络中名为3，4，5的placholder（占位符）。</p>
+</li>
+</ul>
+
             </div>
             <hr/>
 
