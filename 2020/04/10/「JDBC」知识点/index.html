@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「JavaWeb」知识点, Hello,I&#39;m Dosia">
-    <meta name="description" content="01 Tomcat(一) 什么是TomcatTomcat是Apache旗下的一款服务器。
-我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但">
+    <meta name="keywords" content="「JDBC」知识点, Hello,I&#39;m Dosia">
+    <meta name="description" content="「JDBC」知识点 | Hello,I&#39;m Dosia">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「JavaWeb」知识点 | Hello,I&#39;m Dosia</title>
+    <title>「JDBC」知识点 | Hello,I&#39;m Dosia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -418,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「JavaWeb」知识点</h1>
+                    <h1 class="description center-align post-title">「JDBC」知识点</h1>
                 </div>
             </div>
         </div>
@@ -552,7 +551,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-10
                 </div>
                 
 
@@ -569,60 +568,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="01-Tomcat"><a href="#01-Tomcat" class="headerlink" title="01 Tomcat"></a>01 Tomcat</h1><h2 id="一-什么是Tomcat"><a href="#一-什么是Tomcat" class="headerlink" title="(一) 什么是Tomcat"></a>(一) 什么是Tomcat</h2><p>Tomcat是Apache旗下的一款<strong>服务器</strong>。</p>
-<p>我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但它也仅仅在本地访问，因此我们需要一个服务器来接受处理和发送给客户端数据。</p>
-<blockquote>
-<p>例如，我在一个HTML表单中写了自己的账号密码，点击提交，可以跳转到“成功”页面，但是，注册的数据并不能传到网站的总部（服务器）进行存取。因此我们需要一个叫做<strong>服务器</strong>的东西来实现无数个客户端（静态网页）与一个中心的交互联络。而我们本地用浏览器打开的页面则被称作<strong>客户端</strong>。</p>
-</blockquote>
-<p>客户端相关的代码则使用java以及相关框架实现。</p>
-<h2 id="（二）-Tomcat的文件结构"><a href="#（二）-Tomcat的文件结构" class="headerlink" title="（二） Tomcat的文件结构"></a>（二） Tomcat的文件结构</h2><h2 id="（三）-IDE中装载Tomcat"><a href="#（三）-IDE中装载Tomcat" class="headerlink" title="（三） IDE中装载Tomcat"></a>（三） IDE中装载Tomcat</h2><p>加载Tomcat后会拷贝Tomcat文件夹中的副本。自己的资源也要放在Tomcat对应的文件夹下。如静态资源、代码、库、配置文件等都有指定的位置。</p>
-<h1 id="02-Http"><a href="#02-Http" class="headerlink" title="02 Http"></a>02 Http</h1><h2 id="（一）什么是Http"><a href="#（一）什么是Http" class="headerlink" title="（一）什么是Http"></a>（一）什么是Http</h2><p>Http是超文本传输<strong>协议</strong>。规定了客户端向服务器发送<strong>请求（Request）</strong> 时<strong>报文</strong>的格式，也规定了服务器向客户端返回<strong>响应(Response)</strong> 时报文的格式。</p>
-<h2 id="（二）Request与Response的查看"><a href="#（二）Request与Response的查看" class="headerlink" title="（二）Request与Response的查看"></a>（二）Request与Response的查看</h2><p>在浏览器（如Chrome）的”检查” -&gt; “Network”中查看。</p>
-<h2 id="（三）Request"><a href="#（三）Request" class="headerlink" title="（三）Request"></a>（三）Request</h2><h3 id="报文格式：资料"><a href="#报文格式：资料" class="headerlink" title="报文格式：资料"></a>报文格式：<a href="">资料</a></h3><h3 id="分类：Get-Post"><a href="#分类：Get-Post" class="headerlink" title="分类：Get / Post"></a>分类：Get / Post</h3><p>Get：在浏览器Url中就显示请求参数。<em>传递内容少</em>。</p>
-<p>Post：在传送的报文中的request body放入传递的请求内容。<em>传递内容多</em>。</p>
-<h2 id="（四）Http错误编码"><a href="#（四）Http错误编码" class="headerlink" title="（四）Http错误编码"></a>（四）Http错误编码</h2><p>200 - 成功</p>
-<p>3XX - 重定向</p>
-<p>4XX - 找不到资源</p>
-<p>5XX - 服务器错误</p>
-<h1 id="03-Servlet"><a href="#03-Servlet" class="headerlink" title="03 Servlet"></a>03 Servlet</h1><h2 id="（一）什么是Servlet"><a href="#（一）什么是Servlet" class="headerlink" title="（一）什么是Servlet"></a>（一）什么是Servlet</h2><p>Servlet是Servlet容器下（例如Tomcat）的一个接口，他是客户端与服务器的中间层，作用是处理客户端发来的请求并作出响应。</p>
-<p>在服务器下写Servlet方法无需创建对象。</p>
-<h2 id="（二）servlet写法"><a href="#（二）servlet写法" class="headerlink" title="（二）servlet写法"></a>（二）servlet写法</h2><ul>
-<li><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>原生Servlet会自动生成四个方法：init, getServletConfig, service, getServletInfo, destroy</p>
-</li>
-<li><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在web.xml中配置Servlet，需要配置两块内容，一个是方法的包位置/路径，一个是请求的url。同时也可以在此配置Servlet的初始化参数。而在整个web.xml文件大框架下可以配置Context初始化参数。</p>
-</li>
-<li><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>当url被点击，此请求传递过来，在未找到对应url的静态资源的情况下，找到配置文件中对应的部分，接着通过配置找到方法体，执行相应的Servlet方法。</p>
-</li>
-</ul>
-<h2 id="（三）Servlet方法"><a href="#（三）Servlet方法" class="headerlink" title="（三）Servlet方法"></a>（三）Servlet方法</h2><h3 id="01-ServletConfig"><a href="#01-ServletConfig" class="headerlink" title="01 ServletConfig"></a>01 ServletConfig</h3><ul>
-<li>获取Servlet别名</li>
-<li>获取初始化Servlet参数*</li>
-<li>获取ServletContext*<h3 id="02-ServletContext"><a href="#02-ServletContext" class="headerlink" title="02 ServletContext"></a>02 ServletContext</h3><h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4></li>
-<li>获取web初始化参数*</li>
-<li>获取项目路径</li>
-<li>获取项目真实路径</li>
-<li>最大的域对象共享数据*</li>
-</ul>
-<h1 id="04-HttpServlet"><a href="#04-HttpServlet" class="headerlink" title="04 HttpServlet"></a>04 HttpServlet</h1><h2 id="（一）什么是HttpServlet"><a href="#（一）什么是HttpServlet" class="headerlink" title="（一）什么是HttpServlet"></a>（一）什么是HttpServlet</h2><p>HttpServlet是对Servlet的（多次）封装。最终汇总为doGet与doPost两个方法分别处理get与post请求。</p>
-<h2 id="（二）Response"><a href="#（二）Response" class="headerlink" title="（二）Response"></a>（二）Response</h2><ul>
-<li>给浏览器响应字符串</li>
-<li>重定向到其他资源*</li>
-</ul>
-<h2 id="（三）Request-1"><a href="#（三）Request-1" class="headerlink" title="（三）Request"></a>（三）Request</h2><ul>
-<li>获取参数</li>
-<li>获取请求头</li>
-<li>请求转发页面*</li>
-<li>域对象共享数据<h2 id="四-Request与Response的跳转页面区别："><a href="#四-Request与Response的跳转页面区别：" class="headerlink" title="(四)Request与Response的跳转页面区别："></a>(四)Request与Response的跳转页面区别：</h2></li>
-</ul>
-<p><strong>Request重定向：</strong> 请求一个地址，服务器响应一个新地址给客户端，客户端重新请求另一个地址，得到另一个页面。因此url也是另一个资源的。</p>
-<p><strong>Response转发：</strong> 服务器将客户端请求转发给另外的页面，另外的页面响应后转发回客户端，客户端请求的仍然是原来的页面。</p>
-<p><strong>【举例】</strong> </p>
-<blockquote>
-<p><em>就像A给B QQ发一个消息，B请求重定向的话，即告诉A，我不知道，你去找C，这样A会重新找C发消息，C给A回复。如果是响应转发，即A给B发消息，B把A的问题转发给了C，把C的话转发给A，还是B响应了A，但是内容是C给的。</em></p>
-</blockquote>
-<p><strong>二者区别：</strong><br>区别 | 转发 |  重定向<br>-|-|-<br>url | 原请求地址 | 重定向地址 |<br>Request | 同一请求 | 请求两次 |<br>API | Request对象 | Response对象 |<br>位置 | 服务器 | 浏览器 |<br>WEB-INF（受保护） | 可以访问（服务器本身可以访问） | 不可访问（浏览器不允许访问） |<br>共享请求域数据 | 可以共享 | 不可共享 |<br>目标资源 | web应用中资源 | 不限 |</p>
-<h1 id="05-Unicode编码"><a href="#05-Unicode编码" class="headerlink" title="05 Unicode编码"></a>05 Unicode编码</h1><p>服务器浏览器编码要一致。一般使用utf-8。 </p>
-
+                
             </div>
             <hr/>
 
@@ -647,7 +593,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://dosiagogo.githun.io/2020/04/07/%E3%80%8CJavaWeb%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">http://dosiagogo.githun.io/2020/04/07/%E3%80%8CJavaWeb%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/</a>
+                    <a href="http://dosiagogo.githun.io/2020/04/10/%E3%80%8CJDBC%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">http://dosiagogo.githun.io/2020/04/10/%E3%80%8CJDBC%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,9 +669,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/04/10/%E3%80%8CJDBC%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="「JDBC」知识点">
+                        
+                        <span class="card-title">「JDBC」知识点</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            zzg-dongxia
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/10/%E3%80%8CMySQL%E3%80%8D%E7%9F%A5%E8%AF%86%E7%82%B9/">
                     <div class="card-image">
@@ -762,47 +747,8 @@ SQL
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            zzg-dongxia
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/17/%E3%80%8CJava%E6%A1%86%E6%9E%B6%E3%80%8DSSM%E7%AC%94%E8%AE%B0/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="「Java框架」SSM笔记">
-                        
-                        <span class="card-title">「Java框架」SSM笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            事件当浏览器组件与用户发生交互成为一个事件。
-
-java写底层逻辑，将传递过来的数据如何变化，变化结果进行运算，对数据进行处理（计算、存取），然后传递到前端做一些外观可见的变化，比如哪里高亮，哪里显示什么。因此java的基础逻辑算法很重要，
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
                             </span>
                         <span class="publish-author">
                             
