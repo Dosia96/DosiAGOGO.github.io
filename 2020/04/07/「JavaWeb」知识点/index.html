@@ -586,6 +586,7 @@
 <p>5XX - 服务器错误</p>
 <h1 id="03-Servlet"><a href="#03-Servlet" class="headerlink" title="03 Servlet"></a>03 Servlet</h1><h2 id="（一）什么是Servlet"><a href="#（一）什么是Servlet" class="headerlink" title="（一）什么是Servlet"></a>（一）什么是Servlet</h2><p>Servlet是Servlet容器下（例如Tomcat）的一个接口，他是客户端与服务器的中间层，作用是处理客户端发来的请求并作出响应。</p>
 <p>在服务器下写Servlet方法无需创建对象。</p>
+<p>服务器和Servlet的关系：<a href="https://www.cnblogs.com/zzjlxy-225223/p/10773334.html" target="_blank" rel="noopener">相关资料</a></p>
 <h2 id="（二）servlet写法"><a href="#（二）servlet写法" class="headerlink" title="（二）servlet写法"></a>（二）servlet写法</h2><ul>
 <li><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>原生Servlet会自动生成四个方法：init, getServletConfig, service, getServletInfo, destroy</p>
 </li>
@@ -622,6 +623,11 @@
 </blockquote>
 <p><strong>二者区别：</strong><br>区别 | 转发 |  重定向<br>-|-|-<br>url | 原请求地址 | 重定向地址 |<br>Request | 同一请求 | 请求两次 |<br>API | Request对象 | Response对象 |<br>位置 | 服务器 | 浏览器 |<br>WEB-INF（受保护） | 可以访问（服务器本身可以访问） | 不可访问（浏览器不允许访问） |<br>共享请求域数据 | 可以共享 | 不可共享 |<br>目标资源 | web应用中资源 | 不限 |</p>
 <h1 id="05-Unicode编码"><a href="#05-Unicode编码" class="headerlink" title="05 Unicode编码"></a>05 Unicode编码</h1><p>服务器浏览器编码要一致。一般使用utf-8。 </p>
+<h1 id="06-绝对路径、相对路径"><a href="#06-绝对路径、相对路径" class="headerlink" title="06 绝对路径、相对路径"></a>06 绝对路径、相对路径</h1><ul>
+<li>XXX 表示与当前文件同级的其他文件</li>
+<li>/XXX 表示根目录下的XXX</li>
+<li>../XXX 表示当前文件上一级目录下的XXX</li>
+</ul>
 
             </div>
             <hr/>

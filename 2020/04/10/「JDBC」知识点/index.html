@@ -5,7 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「JDBC」知识点, Hello,I&#39;m Dosia">
-    <meta name="description" content="「JDBC」知识点 | Hello,I&#39;m Dosia">
+    <meta name="description" content="架构B/S架构Browser/Server 浏览器端、服务器
+C/S架构Client/Server 客户端、服务器
+二者区别C/S需要更新C，可移植性差
+B/S可以直接获得新内容，可移植性好
+JDBC概述JAVA Database Conn">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -568,7 +572,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B/S架构"></a>B/S架构</h2><p>Browser/Server 浏览器端、服务器</p>
+<h2 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C/S架构"></a>C/S架构</h2><p>Client/Server 客户端、服务器</p>
+<h2 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h2><p>C/S<br>需要更新C，可移植性差</p>
+<p>B/S<br>可以直接获得新内容，可移植性好</p>
+<h1 id="JDBC概述"><a href="#JDBC概述" class="headerlink" title="JDBC概述"></a>JDBC概述</h1><p>JAVA Database Connetivity通用的SQL数据库存取和操作的公共接口。（API）</p>
+<h2 id="实现流程"><a href="#实现流程" class="headerlink" title="实现流程"></a>实现流程</h2><p><strong>Java应用程序 -&gt; JDBC接口 -&gt; 具体数据库的JDBC驱动 -&gt; 具体数据库</strong></p>
+<p>面向应用的API，面向数据库的API  –面向接口编程</p>
+<p>程序员面向JDBC接口开发，各数据库厂商面向JDBC接口实现自己数据库的对接</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>增加移植性，屏蔽了数据库的底层细节。</p>
+<h1 id="JDBC程序编写步骤"><a href="#JDBC程序编写步骤" class="headerlink" title="JDBC程序编写步骤"></a>JDBC程序编写步骤</h1><ol>
+<li>导入java.sql包</li>
+<li>附加相应厂商驱动</li>
+<li>加载并注册驱动程序</li>
+<li>Connect对象</li>
+<li>Statement对象</li>
+<li>执行SQL语句</li>
+<li>ResultSet对象（SELECT的结果展示）</li>
+<li>关闭以上对象</li>
+</ol>
+<h1 id="JDBC数据库连接"><a href="#JDBC数据库连接" class="headerlink" title="JDBC数据库连接"></a>JDBC数据库连接</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><ol>
+<li>Driver （驱动-JDBC在不同数据库相对应的驱动，连接哪一种数据库）</li>
+<li>url (数据库位置)</li>
+<li>Property:user, password (数据库账号密码)</li>
+<li>返回一个connect</li>
+</ol>
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>url,user,password写入配置文件 (properties)。加载properties获得相关信息。</p>
+<p>【最终方法优点】</p>
+<ol>
+<li>数据与代码分离，实现了解耦</li>
+<li>如果需要修改配置文件信息，避免程序重新打包</li>
+</ol>
+<h1 id="使用PreparedStatement实现CRUD操作"><a href="#使用PreparedStatement实现CRUD操作" class="headerlink" title="使用PreparedStatement实现CRUD操作"></a>使用PreparedStatement实现CRUD操作</h1><h2 id="CRUD：增删改查"><a href="#CRUD：增删改查" class="headerlink" title="CRUD：增删改查"></a>CRUD：增删改查</h2><h2 id="Statement作用"><a href="#Statement作用" class="headerlink" title="Statement作用"></a>Statement作用</h2><p>数据库连接(本质Socket连接)向数据库服务器发送命令和SQL语句，并接受其返回的结果。</p>
+<h2 id="创建Statement"><a href="#创建Statement" class="headerlink" title="创建Statement"></a>创建Statement</h2><p>-&gt;使用PreparedStatement</p>
+<p><em>Statement种类：</em></p>
+<ol>
+<li><p>Statement: 静态SQL语句并返回结果</p>
+<p> 缺点：涉及到SQL语句使用程序变量时需要拼串-“sql ‘“+xxx+”‘sql”<br> SQL注入，变量和SQL保留字判断错误（or变量被识别成保留字从而导致SQL语句结构改变）。因此使用PreparedStatement替换。</p>
+</li>
+<li><p>PreparedStatement: SQL语句被预编译并存储在此对象，可供多次高效的执行</p>
+<p> 特点：涉及到变量，使用“？”作为占位符，预编译SQL语句，返回PreparedStatement实例。再使用.set…填充。</p>
+</li>
+</ol>
+<ol start="3">
+<li>CallableStatement: SQL存储</li>
+</ol>
+<h2 id="PreparedStatement步骤总结"><a href="#PreparedStatement步骤总结" class="headerlink" title="PreparedStatement步骤总结"></a>PreparedStatement步骤总结</h2><ol>
+<li>获取数据库连接（封装Utils）</li>
+<li>预编译sql语句，返回PreparedStatement实例</li>
+<li>填充占位符</li>
+<li>执行</li>
+<li>资源关闭（封装Utils）</li>
+</ol>
+<pre class=" language-hljs java"><span class="hljs-comment"><code class="language-hljs java"><span class="hljs-comment">//sql语句，使用 ? 作为占位符。</span>
+String sql = <span class="hljs-string">""</span>;
+<span class="hljs-comment">//sql中放sql语句</span>
+PreparedStatement ps = connect.preparedStatement(sql); <span class="hljs-comment">//connect为上一步产生的数据库连接。</span>
+<span class="hljs-comment">//填充占位符</span>
+ps.set..(index,val); 
+<span class="hljs-comment">//执行PreparedStatement</span>
+ps.execute(); 
+<span class="hljs-comment">//资源关闭</span>
+ps.close(); 
+<span class="hljs-comment">//资源关闭</span>
+connect.close();</code></pre>
             </div>
             <hr/>
 
@@ -686,7 +753,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            架构B/S架构Browser/Server 浏览器端、服务器
+C/S架构Client/Server 客户端、服务器
+二者区别C/S需要更新C，可移植性差
+B/S可以直接获得新内容，可移植性好
+JDBC概述JAVA Database Conn
                         
                     </div>
                     <div class="publish-info">
