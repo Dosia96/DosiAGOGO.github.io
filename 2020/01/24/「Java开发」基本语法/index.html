@@ -5,13 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「Java开发」基本语法, Hello,I&#39;m Dosia">
-    <meta name="description" content="Java基本语法00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）01节开始内容仅为个人笔记、重点补充，如需详细学习可去 菜鸟教程
+    <meta name="description" content="00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）01节开始内容仅为个人笔记、重点补充，如需详细学习可去 菜鸟教程
 01 注释1.1.//单行注释
 2./*
 多行注释
 */
 
-02 类与对象特征：">
+02 类与对象特征：
+一个源文件中只">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -574,13 +575,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java基本语法"><a href="#Java基本语法" class="headerlink" title="Java基本语法"></a>Java基本语法</h1><h2 id="00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）"><a href="#00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）" class="headerlink" title="00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）"></a>00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）</h2><p>01节开始内容仅为个人笔记、重点补充，如需详细学习可去 <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-<h2 id="01-注释"><a href="#01-注释" class="headerlink" title="01 注释"></a>01 注释</h2><pre class=" language-hljs angelscript"><span class="hljs-number">1.</span><span class="hljs-comment"><code class="language-hljs angelscript"><span class="hljs-number">1.</span><span class="hljs-comment">//单行注释</span>
+                <h1 id="00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）"><a href="#00-基本内容（此后仅记录个人认为突出区别者，个人曾学C、C-与python）" class="headerlink" title="00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）"></a>00 基本内容（此后仅记录个人认为突出区别者，个人曾学C、C#与python）</h1><p>01节开始内容仅为个人笔记、重点补充，如需详细学习可去 <a href="https://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<h1 id="01-注释"><a href="#01-注释" class="headerlink" title="01 注释"></a>01 注释</h1><pre class=" language-hljs angelscript"><span class="hljs-number">1.</span><span class="hljs-comment"><code class="language-hljs angelscript"><span class="hljs-number">1.</span><span class="hljs-comment">//单行注释</span>
 <span class="hljs-number">2.</span><span class="hljs-comment">/*
 多行注释
 */</span></code></pre>
 
-<h2 id="02-类与对象"><a href="#02-类与对象" class="headerlink" title="02 类与对象"></a>02 类与对象</h2><h3 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h3><ul>
+<h1 id="02-类与对象"><a href="#02-类与对象" class="headerlink" title="02 类与对象"></a>02 类与对象</h1><h2 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h2><ul>
 <li><p>一个<strong>源文件</strong>中只能有<strong>一个public类</strong>（类与文件名对应一致）</p>
 </li>
 <li><p>一个源文件可以有<strong>多个非public类</strong></p>
@@ -594,16 +595,16 @@
 </li>
 </ul>
 <p>采用 this 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name变量）之间发生的同名的冲突。 如：this.name = name。前者为奔类中定义的变量，而后者的name为方法中的形参。</p>
-<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h3><p>避免类似重复，因此把其提取归类，比如职业类，然后子类比如教师类是继承自父类的，将父类拥有的（共同）特征继承过来，同时可以拥有自己的新的东西。<strong>一个子类只能继承一个父类</strong>。但是<strong>一个接口可以继承多个接口</strong>。类继承使用extends，接口继承使用implements。子类可以<strong>重写</strong>父类中的同名且参数列表相同的方法。</p>
+<h2 id="继承："><a href="#继承：" class="headerlink" title="继承："></a>继承：</h2><p>避免类似重复，因此把其提取归类，比如职业类，然后子类比如教师类是继承自父类的，将父类拥有的（共同）特征继承过来，同时可以拥有自己的新的东西。<strong>一个子类只能继承一个父类</strong>。但是<strong>一个接口可以继承多个接口</strong>。类继承使用extends，接口继承使用implements。子类可以<strong>重写</strong>父类中的同名且参数列表相同的方法。</p>
 <p><a href="https://blog.csdn.net/weigb/article/details/1864192" target="_blank" rel="noopener">多态和重载的区别</a></p>
-<h3 id="final、super和this关键字："><a href="#final、super和this关键字：" class="headerlink" title="final、super和this关键字："></a>final、super和this关键字：</h3><p>super用来访问当前类的父类，this是指向自己的引用。final描述最终类，最终类不能被继承。</p>
-<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>其中不包含能够实例化一个对象的具体内容，因此必须被<strong>继承</strong>然后其子类对其描述后才能使用。父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。<br>使用abstract class来定义抽象类。</p>
-<h2 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h2><p>对成百上千的类和接口进行<strong>分类</strong>。</p>
+<h2 id="final、super和this关键字："><a href="#final、super和this关键字：" class="headerlink" title="final、super和this关键字："></a>final、super和this关键字：</h2><p>super用来访问当前类的父类，this是指向自己的引用。final描述最终类，最终类不能被继承。</p>
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>其中不包含能够实例化一个对象的具体内容，因此必须被<strong>继承</strong>然后其子类对其描述后才能使用。父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。<br>使用abstract class来定义抽象类。</p>
+<h1 id="03-java包"><a href="#03-java包" class="headerlink" title="03 java包"></a>03 java包</h1><p>对成百上千的类和接口进行<strong>分类</strong>。</p>
 <ul>
 <li><strong>java中类与包的关系</strong> 包就是工具箱，类就是工具箱里的工具。*</li>
 </ul>
 <p><em>【疑问】java定义一个源文件里面放一个public类p1，然后再定义一个源文件里面放一个public类p2，并在p2的main函数里使用p1创建对象。此时p2是如何定位到p1的？<a href="https://www.runoob.com/java/java-object-classes.html" target="_blank" rel="noopener">问题链接</a></em></p>
-<h2 id="04-引用类型"><a href="#04-引用类型" class="headerlink" title="04 引用类型"></a>04 引用类型</h2><p>类似于C/C++的指针，指向一个<strong>对象</strong>，他其实和int之类类似，java的数据类型分为两类：原始数据类型（int、long之类）&amp;引用数据类型。引用数据类型即非标准的那些数据类型。</p>
+<h1 id="04-引用类型"><a href="#04-引用类型" class="headerlink" title="04 引用类型"></a>04 引用类型</h1><p>类似于C/C++的指针，指向一个<strong>对象</strong>，他其实和int之类类似，java的数据类型分为两类：原始数据类型（int、long之类）&amp;引用数据类型。引用数据类型即非标准的那些数据类型。</p>
 <p><em>比如正常我们是</em></p>
 <pre class=" language-hljs angelscript"><span class="hljs-built_in">int</span> a = <span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-built_in">int</span> a = <span class="hljs-number">10</span></code></pre>
 <p><em>而引用数据类型我们可以有</em></p>
@@ -612,13 +613,13 @@
 <li>对象、数组都是引用数据类型。</li>
 <li>所有引用类型的默认值都是null。</li>
 </ul>
-<h2 id="05-java中的new，-XXX-a-new-XXX（）；"><a href="#05-java中的new，-XXX-a-new-XXX（）；" class="headerlink" title="05 java中的new， XXX a = new XXX（）；"></a>05 java中的new， XXX a = new XXX（）；</h2><p><strong>首先解析后半部分</strong>，new XXX的作用，XXX是一个类，它是没有实例化的，也就是说，我们定义了一个书的类，类里有标签啊，内容啊，书名啊，但是这是抽象的，只有实例化到某本书，他才有具体对应的书本信息。即标签是四大名著，内容是……，书名是《三国演义》。<br><strong>new后面跟一个构造方法，来创建一个对象。</strong></p>
+<h1 id="05-java中的new，-XXX-a-new-XXX（）；"><a href="#05-java中的new，-XXX-a-new-XXX（）；" class="headerlink" title="05 java中的new， XXX a = new XXX（）；"></a>05 java中的new， XXX a = new XXX（）；</h1><p><strong>首先解析后半部分</strong>，new XXX的作用，XXX是一个类，它是没有实例化的，也就是说，我们定义了一个书的类，类里有标签啊，内容啊，书名啊，但是这是抽象的，只有实例化到某本书，他才有具体对应的书本信息。即标签是四大名著，内容是……，书名是《三国演义》。<br><strong>new后面跟一个构造方法，来创建一个对象。</strong></p>
 <p><strong>再看前半部分</strong> XXX a，即在内存中分配一个变量，名字叫a，这个变量是XXX类型的。</p>
 <p>因此，前半部分 XXX a 是创建一个内存空间，等待存放东西；后半部分，new XXX（）是调用XXX（）构造方法将类XXX实例化，创建一个XXX类对应的对象。然后把这个对象赋值给刚刚创建的空间。</p>
 <p><em><a href="https://zhidao.baidu.com/question/55121438.html" target="_blank" rel="noopener">参考资料</a></em></p>
-<h2 id="06-常量"><a href="#06-常量" class="headerlink" title="06 常量"></a>06 常量</h2><p>在 Java 中使用 final 关键字来修饰常量。通常使用大写。</p>
+<h1 id="06-常量"><a href="#06-常量" class="headerlink" title="06 常量"></a>06 常量</h1><p>在 Java 中使用 final 关键字来修饰常量。通常使用大写。</p>
 <pre class=" language-hljs angelscript"><span class="hljs-keyword">final</span> <span class="hljs-built_in">double</span> PI = <span class="hljs-number"><code class="language-hljs angelscript"><span class="hljs-keyword">final</span> <span class="hljs-built_in">double</span> PI = <span class="hljs-number">3.1415927</span>;</code></pre>
-<h2 id="07-转义符"><a href="#07-转义符" class="headerlink" title="07 转义符"></a>07 转义符</h2><pre class=" language-hljs livescript"><span class="hljs-string">\n</span>	换行 (<span class="hljs-number"><code class="language-hljs livescript"><span class="hljs-string">\n</span>	换行 (<span class="hljs-number">0x0a</span>)
+<h1 id="07-转义符"><a href="#07-转义符" class="headerlink" title="07 转义符"></a>07 转义符</h1><pre class=" language-hljs livescript"><span class="hljs-string">\n</span>	换行 (<span class="hljs-number"><code class="language-hljs livescript"><span class="hljs-string">\n</span>	换行 (<span class="hljs-number">0x0a</span>)
 <span class="hljs-string">\r</span>	回车 (<span class="hljs-number">0x0d</span>)
 <span class="hljs-string">\f</span>	换页符(<span class="hljs-number">0x0c</span>)
 <span class="hljs-string">\b</span>	退格 (<span class="hljs-number">0x08</span>)
@@ -630,16 +631,16 @@
 <span class="hljs-string">\\</span>	反斜杠
 <span class="hljs-string">\ddd</span>	八进制字符 (ddd)
 <span class="hljs-string">\uxxxx</span>	<span class="hljs-number">16</span>进制Unicode字符 (xxxx)</code></pre>
-<h2 id="08-类型转换"><a href="#08-类型转换" class="headerlink" title="08 类型转换"></a>08 类型转换</h2><p>使用方法：加括号表达强制转换。</p>
+<h1 id="08-类型转换"><a href="#08-类型转换" class="headerlink" title="08 类型转换"></a>08 类型转换</h1><p>使用方法：加括号表达强制转换。</p>
 <pre class=" language-hljs angelscript">（<span class="hljs-built_in"><code class="language-hljs angelscript">（<span class="hljs-built_in">int</span>）a</code></pre>
 <p>表示将a转换为int类型。</p>
-<h2 id="09-非访问修饰符-（什么叫非访问修饰符？）"><a href="#09-非访问修饰符-（什么叫非访问修饰符？）" class="headerlink" title="09 非访问修饰符 （什么叫非访问修饰符？）"></a>09 非访问修饰符 <em>（什么叫非访问修饰符？）</em></h2><ul>
+<h1 id="09-非访问修饰符-（什么叫非访问修饰符？）"><a href="#09-非访问修饰符-（什么叫非访问修饰符？）" class="headerlink" title="09 非访问修饰符 （什么叫非访问修饰符？）"></a>09 非访问修饰符 <em>（什么叫非访问修饰符？）</em></h1><ul>
 <li>static 修饰符，用来修饰<strong>类方法和类变量</strong>。<em>静态，就是全局，比如类中的static修饰的变量，就是所有的对象共享的变量。</em></li>
 <li>final 修饰符，用来修饰<strong>类、方法和变量</strong>，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，不可修改。<em>就是常量的意思。</em></li>
 <li>abstract 修饰符，用来创建抽象类和抽象方法。抽象方法是一种没有任何实现的方法，该方法的的具体实现由子类提供。子类必须实现父类的所有抽象方法。</li>
 <li>synchronized（同一时间只能被一个线程访问） 和 volatile（每次被线程访问时，都强制从共享内存中重新读取该成员变量的值） transient（java 虚拟机(JVM)跳过该特定的变量） 修饰符，主要用于线程的编程。</li>
 </ul>
-<h2 id="10-for循环"><a href="#10-for循环" class="headerlink" title="10 for循环"></a>10 for循环</h2><p>除去原来的while do while for方法以外，java还有增强for循环。</p>
+<h1 id="10-for循环"><a href="#10-for循环" class="headerlink" title="10 for循环"></a>10 for循环</h1><p>除去原来的while do while for方法以外，java还有增强for循环。</p>
 <pre class=" language-hljs stylus"><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params"><code class="language-hljs stylus"><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params">(声明语句int x : 表达式num)</span></span>
 &#123;
    <span class="hljs-comment">//从表达式num中访问其每一个元素，每一次循环对应其中一个元素的取值并赋值给x。</span>
@@ -647,10 +648,10 @@
 &#125;</code></pre>
 
 
-<h2 id="11-正则表达式"><a href="#11-正则表达式" class="headerlink" title="11 正则表达式"></a>11 正则表达式</h2><h3 id="「此处需要系统学习」"><a href="#「此处需要系统学习」" class="headerlink" title="「此处需要系统学习」"></a><a href="https://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="noopener"><strong>「此处需要系统学习」</strong></a></h3><p>正则表达式定义了字符串的模式。用于操作（复杂）文本。<br>其实就是构成文本的规则，其中有我们常见的字符串，同时也有一些记号，比如/n之类。java中/d表示任意数字，这样在一个“文本内容”中，出现改变的数字就不用麻烦的替换，只需要用表达式代替。除此之外还有许多正则表达式。</p>
-<h2 id="12-接口"><a href="#12-接口" class="headerlink" title="12 接口"></a>12 接口</h2><p>接口是抽象方法的集合，通常以interface声明，一个类通过继承接口的方式继承接口的抽象方法。一个类只能继承一个抽象类，而一个类却可以实现多个接口。（接口有点类似于抽象类但又有些不同）</p>
-<h4 id="标记接口"><a href="#标记接口" class="headerlink" title="标记接口"></a>标记接口</h4><p>标记接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。</p>
-<h2 id="13-包"><a href="#13-包" class="headerlink" title="13 包"></a>13 包</h2><p>类似于文件夹，工具包，把许多的类放到一个包中，就像把很多工具放到一个工具箱中一样。<br>package用来规定路径。然后在package中创建的类就被创建到对应路径下。因此我们在import包的时候，就会定位到对应路径。类的保存都在统一的位置，因此import包也不会错乱。</p>
+<h1 id="11-正则表达式"><a href="#11-正则表达式" class="headerlink" title="11 正则表达式"></a>11 正则表达式</h1><h2 id="「此处需要系统学习」"><a href="#「此处需要系统学习」" class="headerlink" title="「此处需要系统学习」"></a><a href="https://www.runoob.com/java/java-regular-expressions.html" target="_blank" rel="noopener"><strong>「此处需要系统学习」</strong></a></h2><p>正则表达式定义了字符串的模式。用于操作（复杂）文本。<br>其实就是构成文本的规则，其中有我们常见的字符串，同时也有一些记号，比如/n之类。java中/d表示任意数字，这样在一个“文本内容”中，出现改变的数字就不用麻烦的替换，只需要用表达式代替。除此之外还有许多正则表达式。</p>
+<h1 id="12-接口"><a href="#12-接口" class="headerlink" title="12 接口"></a>12 接口</h1><p>接口是抽象方法的集合，通常以interface声明，一个类通过继承接口的方式继承接口的抽象方法。一个类只能继承一个抽象类，而一个类却可以实现多个接口。（接口有点类似于抽象类但又有些不同）</p>
+<h3 id="标记接口"><a href="#标记接口" class="headerlink" title="标记接口"></a>标记接口</h3><p>标记接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。</p>
+<h1 id="13-包"><a href="#13-包" class="headerlink" title="13 包"></a>13 包</h1><p>类似于文件夹，工具包，把许多的类放到一个包中，就像把很多工具放到一个工具箱中一样。<br>package用来规定路径。然后在package中创建的类就被创建到对应路径下。因此我们在import包的时候，就会定位到对应路径。类的保存都在统一的位置，因此import包也不会错乱。</p>
 <pre class=" language-hljs angelscript"><code class="language-hljs angelscript">package net.java.util;
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-symbol">Something</span>&#123;
    ...
@@ -660,7 +661,20 @@
 <p>package用来创建包，在最开始写package然后创建类，即类在该包中。<br>import用来导入包。<br>配置好路径，即可默认读取class所在的包。（UNIX 平台）</p>
 <pre class=" language-hljs gradle"># <span class="hljs-keyword">CLASSPATH</span>=<span class="hljs-regexp">/home/</span>jack<span class="hljs-regexp">/java/</span>classes; export <span class="hljs-keyword"><code class="language-hljs gradle"># <span class="hljs-keyword">CLASSPATH</span>=<span class="hljs-regexp">/home/</span>jack<span class="hljs-regexp">/java/</span>classes; export <span class="hljs-keyword">CLASSPATH</span></code></pre>
 
-<h2 id="14-java框架"><a href="#14-java框架" class="headerlink" title="14 java框架"></a>14 java框架</h2><h1 id="Java小细节补充"><a href="#Java小细节补充" class="headerlink" title="Java小细节补充"></a>Java小细节补充</h1><h3 id="的用法与意义"><a href="#的用法与意义" class="headerlink" title="@的用法与意义"></a>@的用法与意义</h3><blockquote>
+<h1 id="14-java框架"><a href="#14-java框架" class="headerlink" title="14 java框架"></a>14 java框架</h1><p>方便开发的框架，集成优化了复杂繁琐的工作，封装了繁杂的代码。似的开发有了方便的工具使用。</p>
+<h1 id="15-Java-bean"><a href="#15-Java-bean" class="headerlink" title="15 Java bean"></a>15 Java bean</h1><p><a href="https://www.zhihu.com/question/19773379" target="_blank" rel="noopener">参考资料</a></p>
+<ol>
+<li>所有属性为private</li>
+<li>提供默认构造方法</li>
+<li>提供getter和setter</li>
+<li>实现serializable接口</li>
+</ol>
+<h1 id="16-反射"><a href="#16-反射" class="headerlink" title="16 反射"></a>16 反射</h1><h1 id="17-范型"><a href="#17-范型" class="headerlink" title="17 范型"></a>17 范型</h1><h1 id="18-try-catch"><a href="#18-try-catch" class="headerlink" title="18 try catch"></a>18 try catch</h1><h1 id="19-抽象类"><a href="#19-抽象类" class="headerlink" title="19 抽象类"></a>19 抽象类</h1><p>不能实例化，近提供方法。</p>
+<h1 id="20-接口以及实现类"><a href="#20-接口以及实现类" class="headerlink" title="20 接口以及实现类"></a>20 接口以及实现类</h1><p><a href="https://www.zhihu.com/question/20111251" target="_blank" rel="noopener">参考资料</a></p>
+<h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><p>首先定义一个接口，接口中提供要拥有的所有方法，但是仅仅提供方法名和传参，并不写具体的实现。</p>
+<h2 id="implament"><a href="#implament" class="headerlink" title="implament"></a>implament</h2><p>其次定义一个实现类，implements一个接口（类似于extend的写法），此时接口的各种方法在此@Override具体实现。</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>显得简单明了，查看相关方法只需要找到接口即可一目了然，没有冗余的实现步骤，而具体的实现在implements中实现重写。</p>
+<h1 id="Java小细节补充"><a href="#Java小细节补充" class="headerlink" title="Java小细节补充"></a>Java小细节补充</h1><h2 id="的用法与意义"><a href="#的用法与意义" class="headerlink" title="@的用法与意义"></a>@的用法与意义</h2><blockquote>
 <p><strong>注解</strong>，顾名思义，注解,就是对某一事物进行添加注释说明，会存放一些信息，这些信息可能对以后某个时段来说是很有用处的。</p>
 </blockquote>
 <ul>
@@ -678,7 +692,7 @@
 </ol>
 </li>
 </ul>
-<h3 id="接口是什么"><a href="#接口是什么" class="headerlink" title="接口是什么"></a>接口是什么</h3>
+<h2 id="接口是什么"><a href="#接口是什么" class="headerlink" title="接口是什么"></a>接口是什么</h2>
             </div>
             <hr/>
 

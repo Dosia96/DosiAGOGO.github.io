@@ -5,11 +5,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="「JDBC」知识点, Hello,I&#39;m Dosia">
-    <meta name="description" content="架构B/S架构Browser/Server 浏览器端、服务器
+    <meta name="description" content="目录
+概述
+数据库连接
+CRUD基本操作（preparedstatement）
+BLOB
+批量插入
+数据库事务
+
+架构B/S架构Browser/Server 浏览器端、服务器
 C/S架构Client/Server 客户端、服务器
-二者区别C/S需要更新C，可移植性差
-B/S可以直接获得新内容，可移植性好
-JDBC概述JAVA Database Conn">
+二者区别C">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -572,7 +578,15 @@ JDBC概述JAVA Database Conn">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B/S架构"></a>B/S架构</h2><p>Browser/Server 浏览器端、服务器</p>
+                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>概述</li>
+<li>数据库连接</li>
+<li>CRUD基本操作（preparedstatement）</li>
+<li>BLOB</li>
+<li>批量插入</li>
+<li>数据库事务</li>
+</ul>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="B-S架构"><a href="#B-S架构" class="headerlink" title="B/S架构"></a>B/S架构</h2><p>Browser/Server 浏览器端、服务器</p>
 <h2 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C/S架构"></a>C/S架构</h2><p>Client/Server 客户端、服务器</p>
 <h2 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h2><p>C/S<br>需要更新C，可移植性差</p>
 <p>B/S<br>可以直接获得新内容，可移植性好</p>
@@ -606,18 +620,23 @@ JDBC概述JAVA Database Conn">
 <h1 id="使用PreparedStatement实现CRUD操作"><a href="#使用PreparedStatement实现CRUD操作" class="headerlink" title="使用PreparedStatement实现CRUD操作"></a>使用PreparedStatement实现CRUD操作</h1><h2 id="CRUD：增删改查"><a href="#CRUD：增删改查" class="headerlink" title="CRUD：增删改查"></a>CRUD：增删改查</h2><h2 id="Statement作用"><a href="#Statement作用" class="headerlink" title="Statement作用"></a>Statement作用</h2><p>数据库连接(本质Socket连接)向数据库服务器发送命令和SQL语句，并接受其返回的结果。</p>
 <h2 id="创建Statement"><a href="#创建Statement" class="headerlink" title="创建Statement"></a>创建Statement</h2><p>-&gt;使用PreparedStatement</p>
 <p><em>Statement种类：</em></p>
-<ol>
+<ul>
 <li><p>Statement: 静态SQL语句并返回结果</p>
-<p> 缺点：涉及到SQL语句使用程序变量时需要拼串-“sql ‘“+xxx+”‘sql”<br> SQL注入，变量和SQL保留字判断错误（or变量被识别成保留字从而导致SQL语句结构改变）。因此使用PreparedStatement替换。</p>
+<p>  缺点：涉及到SQL语句使用程序变量时需要拼串-“sql ‘“+xxx+”‘sql”<br>  SQL注入，变量和SQL保留字判断错误（or变量被识别成保留字从而导致SQL语句结构改变）。因此使用PreparedStatement替换。</p>
 </li>
 <li><p>PreparedStatement: SQL语句被预编译并存储在此对象，可供多次高效的执行</p>
-<p> 特点：涉及到变量，使用“？”作为占位符，预编译SQL语句，返回PreparedStatement实例。再使用.set…填充。</p>
+<p>  特点：涉及到变量，使用“？”作为占位符，预编译SQL语句，返回PreparedStatement实例。再使用.set…填充。</p>
+<ol>
+<li>预编译，解决了拼串和Statement因为没有预编译出现的sql注入问题</li>
+<li>可以操作blob类型的数据（流、文件）</li>
+<li>批量操作效率高：只需要验证一次sql语句</li>
+</ol>
 </li>
-</ol>
-<ol start="3">
+</ul>
+<ul>
 <li>CallableStatement: SQL存储</li>
-</ol>
-<h2 id="PreparedStatement步骤总结"><a href="#PreparedStatement步骤总结" class="headerlink" title="PreparedStatement步骤总结"></a>PreparedStatement步骤总结</h2><ol>
+</ul>
+<h2 id="PreparedStatement步骤总结"><a href="#PreparedStatement步骤总结" class="headerlink" title="PreparedStatement步骤总结"></a>PreparedStatement步骤总结</h2><h3 id="增删改"><a href="#增删改" class="headerlink" title="增删改"></a>增删改</h3><ol>
 <li>获取数据库连接（封装Utils）</li>
 <li>预编译sql语句，返回PreparedStatement实例</li>
 <li>填充占位符</li>
@@ -636,6 +655,100 @@ ps.execute();
 ps.close(); 
 <span class="hljs-comment">//资源关闭</span>
 connect.close();</code></pre>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
+<li>获取数据库连接（封装Utils）</li>
+<li>预编译sql语句，返回PreparedStatement实例</li>
+<li>填充占位符</li>
+<li>执行</li>
+<li>处理结果集</li>
+<li>资源关闭（封装Utils）</li>
+</ol>
+<pre class=" language-hljs java"><span class="hljs-comment"><code class="language-hljs java"><span class="hljs-comment">//sql语句，使用 ? 作为占位符。</span>
+String sql = <span class="hljs-string">""</span>;
+<span class="hljs-comment">//sql中放sql语句</span>
+PreparedStatement ps = connect.preparedStatement(sql); <span class="hljs-comment">//connect为上一步产生的数据库连接。</span>
+<span class="hljs-comment">//填充占位符</span>
+ps.set..(index,val); 
+<span class="hljs-comment">//执行PreparedStatement</span>
+ResultSet result = ps.executeQuery(); 
+<span class="hljs-comment">//获取结果集的元数据（有列数等）</span>
+x = rs.getMetaData();
+<span class="hljs-comment">//处理结果集</span>
+<span class="hljs-keyword">if</span>(reslut.next())&#123;<span class="hljs-comment">//判断结果集是否有下一条,如果有-True并指针下移。</span>
+    
+    <span class="hljs-comment">//获取当前条中各个字段值</span>
+    result.getxx(index)
+    <span class="hljs-comment">//使用反射找到对应字段与对象中属性名相同的属性赋值sql语句中选择的值</span>
+&#125;
+<span class="hljs-comment">//资源关闭</span>
+ps.close(); 
+<span class="hljs-comment">//资源关闭</span>
+connect.close(); 
+<span class="hljs-comment">//资源关闭</span>
+result.close();</code></pre>
+<p>反射时会出现sql字段名与对象属性名不同导致反射报错：中在sql语句中通过起别名（别名等于对象属性名）的方式解决不对应的问题。</p>
+<blockquote>
+<p>ORM思想（Object Relational mapping）<br>一个表对应一个java类，<br>一条记录对应一个对象，<br>一个字段对应一个属性。</p>
+</blockquote>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><ol start="0">
+<li>写一般sql语句，一句sql执行固定的内容。对基本的常用方法封装。</li>
+<li>写通用sql语句，一句sql可以执行多个功能，有占位符“？”。</li>
+<li>查询操作（多一个返回结果集和Bean对象的封装）</li>
+<li>使用反射动态的存储查询结果</li>
+<li>使用反射、泛型做通用表的操作方法。</li>
+<li>对大型数据的操作：blob</li>
+<li>批量操作（for）（攒sql addBatch/配置Properties-&gt;url）（关闭自动提交）</li>
+</ol>
+<blockquote>
+<p>preparedstatement的好处 sql不用反复编译，有一次预编译后续只要改占位符，节约了内存和处理时间</p>
+</blockquote>
+<h1 id="数据库事务"><a href="#数据库事务" class="headerlink" title="数据库事务"></a>数据库事务</h1><p>Transaction</p>
+<h2 id="什么叫数据库事务"><a href="#什么叫数据库事务" class="headerlink" title="什么叫数据库事务"></a>什么叫数据库事务</h2><p>是一组逻辑单元，使得数据从一种状态转换到另一种状态。一个或多个DML操作。</p>
+<h2 id="事务处理原则"><a href="#事务处理原则" class="headerlink" title="事务处理原则"></a>事务处理原则</h2><p>把多个操作绑定到一起，要么全部完成，中途有故障则回滚到最初状态。</p>
+<p>数据一旦提交，则不可回滚。</p>
+<p>自动提交的操作：DDL、DML（默认情况）、关闭连接</p>
+<h2 id="事务的ACID属性"><a href="#事务的ACID属性" class="headerlink" title="事务的ACID属性"></a>事务的ACID属性</h2><ol>
+<li><p>原子性Atomicity</p>
+</li>
+<li><p>一致性Consistency</p>
+</li>
+<li><p>隔离性Isolation</p>
+<ul>
+<li>数据库并发问题：</li>
+<li>四种隔离级别：</li>
+</ul>
+</li>
+<li><p>持久性Durability</p>
+</li>
+</ol>
+<h3 id="数据库并发问题："><a href="#数据库并发问题：" class="headerlink" title="数据库并发问题："></a>数据库并发问题：</h3><ul>
+<li>脏读*</li>
+<li>不可重复读</li>
+<li>幻读<h3 id="四种隔离级别："><a href="#四种隔离级别：" class="headerlink" title="四种隔离级别："></a>四种隔离级别：</h3></li>
+<li>READ UNCOMMITTED</li>
+<li>READ COMMITTED*</li>
+<li>REPEATABLE READ</li>
+<li>SERIALIZABLE</li>
+</ul>
+<h1 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h1><h2 id="什么是DAO"><a href="#什么是DAO" class="headerlink" title="什么是DAO"></a>什么是DAO</h2><p>封装针对于数据表的通用操作。</p>
+<h2 id="BaseDAO"><a href="#BaseDAO" class="headerlink" title="BaseDAO"></a>BaseDAO</h2><p>封装了增删改、查的基本方法。</p>
+<h4 id="接口-实现类"><a href="#接口-实现类" class="headerlink" title="接口-实现类"></a>接口-实现类</h4><h1 id="JDBC数据库连接池"><a href="#JDBC数据库连接池" class="headerlink" title="JDBC数据库连接池"></a>JDBC数据库连接池</h1><h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>创建的对象不能被回收的情况。</p>
+<h2 id="不用连接池存在的问题"><a href="#不用连接池存在的问题" class="headerlink" title="不用连接池存在的问题"></a>不用连接池存在的问题</h2><ol>
+<li>数据库的连接资源没有得到很好的重复利用</li>
+<li>每次连接完都要断开</li>
+<li>这种开发不能控制被创建的连接对象数<h2 id="数据库连接池技术"><a href="#数据库连接池技术" class="headerlink" title="数据库连接池技术"></a>数据库连接池技术</h2>为数据库建立一个缓冲池，预先在其中放入一定量的连接，需要建立连接的时候从其中取出一个，使用完毕再放回。</li>
+</ol>
+<h2 id="多种开源的数据库连接池"><a href="#多种开源的数据库连接池" class="headerlink" title="多种开源的数据库连接池"></a>多种开源的数据库连接池</h2><ul>
+<li>DBCP* 速度快，不稳定（Tomcat自带）</li>
+<li>C3P0* 速度慢，稳定*</li>
+<li>Proxool</li>
+<li>BoneCP</li>
+<li>Druid* 平衡**</li>
+</ul>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>java.sql.DataSource</p>
+<h1 id="DbUtils"><a href="#DbUtils" class="headerlink" title="DbUtils"></a>DbUtils</h1><p>集成了各种常用方法的开源JDBC工具类库。Apache下。是对JDBC的简单封装，学习成本低，极大的简化，不会影响性能。</p>
+
             </div>
             <hr/>
 
@@ -753,11 +866,17 @@ connect.close();</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            架构B/S架构Browser/Server 浏览器端、服务器
+                            目录
+概述
+数据库连接
+CRUD基本操作（preparedstatement）
+BLOB
+批量插入
+数据库事务
+
+架构B/S架构Browser/Server 浏览器端、服务器
 C/S架构Client/Server 客户端、服务器
-二者区别C/S需要更新C，可移植性差
-B/S可以直接获得新内容，可移植性好
-JDBC概述JAVA Database Conn
+二者区别C
                         
                     </div>
                     <div class="publish-info">

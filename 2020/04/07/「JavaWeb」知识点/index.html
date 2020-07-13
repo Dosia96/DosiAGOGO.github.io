@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="「JavaWeb」知识点, Hello,I&#39;m Dosia">
-    <meta name="description" content="01 Tomcat(一) 什么是TomcatTomcat是Apache旗下的一款服务器。
-我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但">
+    <meta name="keywords" content="「JavaWeb」后端知识点, Hello,I&#39;m Dosia">
+    <meta name="description" content="—————————/ / 后端 / /—————————
+01 Tomcat(一) 什么是TomcatTomcat是Apache旗下的一款服务器。
+我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「JavaWeb」知识点 | Hello,I&#39;m Dosia</title>
+    <title>「JavaWeb」后端知识点 | Hello,I&#39;m Dosia</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -418,12 +419,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">「JavaWeb」知识点</h1>
+                    <h1 class="description center-align post-title">「JavaWeb」后端知识点</h1>
                 </div>
             </div>
         </div>
@@ -569,7 +570,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="01-Tomcat"><a href="#01-Tomcat" class="headerlink" title="01 Tomcat"></a>01 Tomcat</h1><h2 id="一-什么是Tomcat"><a href="#一-什么是Tomcat" class="headerlink" title="(一) 什么是Tomcat"></a>(一) 什么是Tomcat</h2><p>Tomcat是Apache旗下的一款<strong>服务器</strong>。</p>
+                <p>—————————/ / 后端 / /—————————</p>
+<h1 id="01-Tomcat"><a href="#01-Tomcat" class="headerlink" title="01 Tomcat"></a>01 Tomcat</h1><h2 id="一-什么是Tomcat"><a href="#一-什么是Tomcat" class="headerlink" title="(一) 什么是Tomcat"></a>(一) 什么是Tomcat</h2><p>Tomcat是Apache旗下的一款<strong>服务器</strong>。</p>
 <p>我们使用HTML、CSS与JQuery写出的网站只是静态资源，它有网站的框架（HTML）、外貌（CSS），以及一些跳转或检索的功能（JQuery）。但它也仅仅在本地访问，因此我们需要一个服务器来接受处理和发送给客户端数据。</p>
 <blockquote>
 <p>例如，我在一个HTML表单中写了自己的账号密码，点击提交，可以跳转到“成功”页面，但是，注册的数据并不能传到网站的总部（服务器）进行存取。因此我们需要一个叫做<strong>服务器</strong>的东西来实现无数个客户端（静态网页）与一个中心的交互联络。而我们本地用浏览器打开的页面则被称作<strong>客户端</strong>。</p>
@@ -584,6 +586,8 @@
 <p>3XX - 重定向</p>
 <p>4XX - 找不到资源</p>
 <p>5XX - 服务器错误</p>
+<h2 id="（五）Http版本"><a href="#（五）Http版本" class="headerlink" title="（五）Http版本"></a>（五）Http版本</h2><h3 id="Http1-0"><a href="#Http1-0" class="headerlink" title="Http1.0"></a>Http1.0</h3><p>每一次请求一个通道，于是会存在因网络延迟或不断刷新导致的重复表单提交问题（解决：使用重定向而不用转发）</p>
+<h3 id="Http1-1"><a href="#Http1-1" class="headerlink" title="Http1.1"></a>Http1.1</h3><p>TCP不断连接，直到响应全部完成</p>
 <h1 id="03-Servlet"><a href="#03-Servlet" class="headerlink" title="03 Servlet"></a>03 Servlet</h1><h2 id="（一）什么是Servlet"><a href="#（一）什么是Servlet" class="headerlink" title="（一）什么是Servlet"></a>（一）什么是Servlet</h2><p>Servlet是Servlet容器下（例如Tomcat）的一个接口，他是客户端与服务器的中间层，作用是处理客户端发来的请求并作出响应。</p>
 <p>在服务器下写Servlet方法无需创建对象。</p>
 <p>服务器和Servlet的关系：<a href="https://www.cnblogs.com/zzjlxy-225223/p/10773334.html" target="_blank" rel="noopener">相关资料</a></p>
@@ -604,6 +608,10 @@
 <li>获取项目真实路径</li>
 <li>最大的域对象共享数据*</li>
 </ul>
+<h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3><ul>
+<li>表单提交的；</li>
+<li>url地址后面的<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4>是在url？后获取<h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4>在请求报文中</li>
+</ul>
 <h1 id="04-HttpServlet"><a href="#04-HttpServlet" class="headerlink" title="04 HttpServlet"></a>04 HttpServlet</h1><h2 id="（一）什么是HttpServlet"><a href="#（一）什么是HttpServlet" class="headerlink" title="（一）什么是HttpServlet"></a>（一）什么是HttpServlet</h2><p>HttpServlet是对Servlet的（多次）封装。最终汇总为doGet与doPost两个方法分别处理get与post请求。</p>
 <h2 id="（二）Response"><a href="#（二）Response" class="headerlink" title="（二）Response"></a>（二）Response</h2><ul>
 <li>给浏览器响应字符串</li>
@@ -613,20 +621,305 @@
 <li>获取参数</li>
 <li>获取请求头</li>
 <li>请求转发页面*</li>
-<li>域对象共享数据<h2 id="四-Request与Response的跳转页面区别："><a href="#四-Request与Response的跳转页面区别：" class="headerlink" title="(四)Request与Response的跳转页面区别："></a>(四)Request与Response的跳转页面区别：</h2></li>
+<li>域对象共享数据</li>
 </ul>
-<p><strong>Request重定向：</strong> 请求一个地址，服务器响应一个新地址给客户端，客户端重新请求另一个地址，得到另一个页面。因此url也是另一个资源的。</p>
+<h2 id="（四）Request与Response的跳转页面区别："><a href="#（四）Request与Response的跳转页面区别：" class="headerlink" title="（四）Request与Response的跳转页面区别："></a>（四）Request与Response的跳转页面区别：</h2><p><strong>Request重定向：</strong> 请求一个地址，服务器响应一个新地址给客户端，客户端重新请求另一个地址，得到另一个页面。因此url也是另一个资源的。</p>
 <p><strong>Response转发：</strong> 服务器将客户端请求转发给另外的页面，另外的页面响应后转发回客户端，客户端请求的仍然是原来的页面。</p>
 <p><strong>【举例】</strong> </p>
 <blockquote>
 <p><em>就像A给B QQ发一个消息，B请求重定向的话，即告诉A，我不知道，你去找C，这样A会重新找C发消息，C给A回复。如果是响应转发，即A给B发消息，B把A的问题转发给了C，把C的话转发给A，还是B响应了A，但是内容是C给的。</em></p>
 </blockquote>
 <p><strong>二者区别：</strong><br>区别 | 转发 |  重定向<br>-|-|-<br>url | 原请求地址 | 重定向地址 |<br>Request | 同一请求 | 请求两次 |<br>API | Request对象 | Response对象 |<br>位置 | 服务器 | 浏览器 |<br>WEB-INF（受保护） | 可以访问（服务器本身可以访问） | 不可访问（浏览器不允许访问） |<br>共享请求域数据 | 可以共享 | 不可共享 |<br>目标资源 | web应用中资源 | 不限 |</p>
+<h2 id="（五）Servlet的调用"><a href="#（五）Servlet的调用" class="headerlink" title="（五）Servlet的调用"></a>（五）Servlet的调用</h2><p>通过Html访问地址，如果没有静态资源则访问Servlet，每个HttpServlet下可以有doGet和doPost方法，同时也可以自定义方法，调用时即可通过”<em>url地址+?method=方法名</em>“调用即可</p>
 <h1 id="05-Unicode编码"><a href="#05-Unicode编码" class="headerlink" title="05 Unicode编码"></a>05 Unicode编码</h1><p>服务器浏览器编码要一致。一般使用utf-8。 </p>
 <h1 id="06-绝对路径、相对路径"><a href="#06-绝对路径、相对路径" class="headerlink" title="06 绝对路径、相对路径"></a>06 绝对路径、相对路径</h1><ul>
 <li>XXX 表示与当前文件同级的其他文件</li>
 <li>/XXX 表示根目录下的XXX</li>
 <li>../XXX 表示当前文件上一级目录下的XXX</li>
+</ul>
+<h1 id="07-项目架构"><a href="#07-项目架构" class="headerlink" title="07 项目架构"></a>07 项目架构</h1><p>前端</p>
+<ul>
+<li>界面交互（表示层）<ul>
+<li>HTML界面</li>
+<li>servlet层</li>
+</ul>
+</li>
+</ul>
+<p>后端</p>
+<ul>
+<li><p>业务逻辑层</p>
+<ul>
+<li>Service层</li>
+</ul>
+</li>
+<li><p>数据库访问层（持久化层）</p>
+<ul>
+<li>Dao层：Database Access Object</li>
+<li>模型层：bean</li>
+</ul>
+</li>
+</ul>
+<h3 id="分层的目的"><a href="#分层的目的" class="headerlink" title="分层的目的"></a>分层的目的</h3><p>模块化、解耦</p>
+<h1 id="08-JSP"><a href="#08-JSP" class="headerlink" title="08 JSP"></a>08 JSP</h1><p>Java Server Page能写java代码的html页面</p>
+<ul>
+<li>本质是Servlet，Servlet能做的事情JSP都能做</li>
+<li>JSP能够以HTML页面的方式呈现数据，是可嵌入Java代码的HTML</li>
+<li>JSP不同于HTML，不能用浏览器直接打开，必须运行在Servlet容器</li>
+</ul>
+<p><strong>将java变量传入HTML，使得HTML页面根据变量做不同的渲染。</strong></p>
+<h2 id="Java代码-设置值"><a href="#Java代码-设置值" class="headerlink" title="Java代码-设置值"></a>Java代码-设置值</h2><pre class=" language-hljs jsp"><code class="language-hljs jsp"><%
+<span class="hljs-comment">//中写java代码，设置四个域中的值</span>
+<span class="hljs-comment">//如</span>
+pageContext.setAttribute(<span class="hljs-string">"Attr"</span>,<span class="hljs-string">"Value"</span>)
+%></code></pre>
+<h2 id="四大域"><a href="#四大域" class="headerlink" title="四大域"></a>四大域</h2><ol>
+<li>pageContext</li>
+<li>request</li>
+<li>session</li>
+<li>application</li>
+</ol>
+<h2 id="Java代码-取值"><a href="#Java代码-取值" class="headerlink" title="Java代码-取值"></a>Java代码-取值</h2><pre class=" language-hljs jsp"><code class="language-hljs jsp"><%
+<span class="hljs-comment">//中写java代码，取四个域中的值</span>
+<span class="hljs-comment">//如</span>
+=pageContext.getAttribute(<span class="hljs-string">"Attr"</span>) <span class="hljs-comment">//此处显示的就是Attr的值，类似于Excel的=表达式</span>
+%></code></pre>
+
+<h2 id="替代"><a href="#替代" class="headerlink" title="替代"></a>替代</h2><p><strong>现阶段JSP已不常用，一般使用spring家族的thymeleaf</strong></p>
+<h1 id="09-数据封装和提取"><a href="#09-数据封装和提取" class="headerlink" title="09 数据封装和提取"></a>09 数据封装和提取</h1><p>包装工具类，使得前端传来的请求中的携带参数能够更方便的放入Bean中，一般使用反射写一个通用方法找到不同的类，创建Bean对象进行赋值。</p>
+<h2 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h2><p>BeanUtils</p>
+<h1 id="10-EL表达式"><a href="#10-EL表达式" class="headerlink" title="10 EL表达式"></a>10 EL表达式</h1><p>Expression Language，主要功能，在页面上显示数据（与<strong>JSP</strong>相同但比JSP更<strong>简便</strong>）</p>
+<h2 id="EL简化开发"><a href="#EL简化开发" class="headerlink" title="EL简化开发"></a>EL简化开发</h2><ol>
+<li>在页面显示域中的属性值 ${属性名}</li>
+<li>获取对象中的属性，直接 x.item，可连点。也可x[‘item’]</li>
+<li>EL取属性名直接写属性名，则从四个域从小到大查找。<br>如果要找指定域，则用Scope，比如requestScope，封装了requestScope域中所有数据。</li>
+<li>EL可以取出11个隐藏对象中的数据，取不出页面自定义数据，（JSP可以）</li>
+<li>EL表达式中取特殊字符如stu-x会产生歧义,因为被误判为运算</li>
+</ol>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>简化操作、友好显示</p>
+<h1 id="11-JSTL"><a href="#11-JSTL" class="headerlink" title="11 JSTL"></a>11 JSTL</h1><p>JSP标准标签库</p>
+<h1 id="12-MVC"><a href="#12-MVC" class="headerlink" title="12 MVC"></a>12 MVC</h1><p>MVC模式，model view Controller，模型、视图、控制器</p>
+<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><p><strong>View视图：</strong> 界面的显示工作，数据和界面的显示（页面部分）</p>
+<p><strong>Model模型：</strong> 1.把页面要显示的数据抽取成模型（JavaBean），业务模型（service）</p>
+<p><strong>Controller控制：</strong> 控制页面转发、跳转（Servlet），把结果抽象成模型</p>
+<h2 id="软件分层的好处"><a href="#软件分层的好处" class="headerlink" title="软件分层的好处"></a>软件分层的好处</h2><ol>
+<li>简化开发，解藕，不受其他层代码干扰</li>
+<li>易于维护，只要接口不变，上层代码就不需要跟着变</li>
+<li>易于分工，按层次结构分工，利于团队合作</li>
+</ol>
+<h2 id="MVC框架"><a href="#MVC框架" class="headerlink" title="MVC框架"></a>MVC框架</h2><ul>
+<li>struts2</li>
+<li>SpringMVC</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>负载均衡（用户请求 -&gt; 动态计算每个服务器的负荷量，把请求发给负荷量少的服务器）<br>反向代理（服务器相应 -&gt; 反向代理，发给代理服务器再发给用户）</p>
+<p>多个服务器（集群）、云计算、分布式</p>
+<p>分库分表、读写分离、主从同步</p>
+<h1 id="13-cookie-amp-session"><a href="#13-cookie-amp-session" class="headerlink" title="13 cookie&amp;session"></a>13 cookie&amp;session</h1><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>在浏览器端缓存数据的一种技术。</p>
+<p>服务器发给浏览器要保存的数据，浏览器保存相关数据。<br>(会员卡，保存浏览器特征数据，以后访问的时候带上此数据即可识别不同访问)</p>
+<p>一个浏览器可以带多个cookie</p>
+<h3 id="Cookie实现"><a href="#Cookie实现" class="headerlink" title="Cookie实现"></a>Cookie实现</h3><ol>
+<li><p>Cookie由服务器创建，在后端服务器通过代码实现（Servlet）</p>
+</li>
+<li><p>发回给浏览器，默认保存一个会话期间</p>
+</li>
+</ol>
+<blockquote>
+<p>无状态协议：服务器无法分辨请求来自于谁。</p>
+</blockquote>
+<h3 id="Cookie生命周期"><a href="#Cookie生命周期" class="headerlink" title="Cookie生命周期"></a>Cookie生命周期</h3><p>默认：随浏览器会话存在期间有效</p>
+<p>0s：删除</p>
+<p>数值：存活多少秒</p>
+<h3 id="Cookie路径"><a href="#Cookie路径" class="headerlink" title="Cookie路径"></a>Cookie路径</h3><p>可以设置Cookie路径，使得cookie在该路径下才生效。</p>
+<h3 id="路径的必要性"><a href="#路径的必要性" class="headerlink" title="路径的必要性"></a>路径的必要性</h3><p>使得不用每次访问都携带很多不必要的cookie，可以节约流量。</p>
+<hr>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>服务器端保存数据的技术</p>
+<p>域对象，在整个会话期间保存的数据任意资源都可以取到。</p>
+<blockquote>
+<p>把需要安全保存的数据保存至服务器，与数据库不同（有点类似于内存/缓存、临时存储和硬盘、永久存储的区别？）</p>
+</blockquote>
+<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>在cookie中保存身份id，在session中存储id下要存储的信息。</p>
+<h3 id="JSESSIONID"><a href="#JSESSIONID" class="headerlink" title="JSESSIONID"></a>JSESSIONID</h3><p>每个浏览器访问服务器的时候，都会创建一个session，保持到会话结束，每个session对应一个id。服务器通过jsessionid自动的找到对应session。</p>
+<h3 id="url重写"><a href="#url重写" class="headerlink" title="url重写"></a>url重写</h3><p>url+;+jsessionid，即可访问对应session下的页面</p>
+<p>cookie被禁用时，url重写会自动加上jessionid</p>
+<blockquote>
+<p>url与uri的区别：</p>
+</blockquote>
+<hr>
+<h2 id="钝化和活化"><a href="#钝化和活化" class="headerlink" title="钝化和活化"></a>钝化和活化</h2><h3 id="钝化"><a href="#钝化" class="headerlink" title="钝化"></a>钝化</h3><p>服务器关闭，session会自动保存到硬盘中<br><em>冷冻存储</em></p>
+<h3 id="活化"><a href="#活化" class="headerlink" title="活化"></a>活化</h3><p>服务器再启动，会自动加载以前的session<br><em>融化激活</em></p>
+<h3 id="活化加载类"><a href="#活化加载类" class="headerlink" title="活化加载类"></a>活化加载类</h3><p>需要实现序列化接口才可，因为钝化时，是把信息序列化</p>
+<h1 id="14-Token"><a href="#14-Token" class="headerlink" title="14 Token"></a>14 Token</h1><p>令牌机制，每次提交表单带上token，服务器验证，合法（与服务器的token一致 ）则执行，不合法则打回。</p>
+<p>可以使用UUID生成token</p>
+<h1 id="15-kaptcha测试-验证码"><a href="#15-kaptcha测试-验证码" class="headerlink" title="15 kaptcha测试-验证码"></a>15 kaptcha测试-验证码</h1><h2 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h2><p>防止多次恶意请求</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>类似于token机制，在页面动态生成，并生成对应图片（使用工具），将验证码发送给session，然后验证表单输入与验证码内容是否一致。</p>
+<h2 id="kaptcha"><a href="#kaptcha" class="headerlink" title="kaptcha"></a>kaptcha</h2><p>生成验证码的工具，只需要在html中<code>&lt;img&gt;</code>标签中的src=kaptcha的servlet，设置只需要在servlet初始化参数中设置验证码属性即可。</p>
+<h1 id="16-Filter"><a href="#16-Filter" class="headerlink" title="16 Filter"></a>16 Filter</h1><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>用户直接通过地址可以访问已经创建好的资源，虽然固定流程设定了通过页面操作跳转，而用户可以跳过页面操作直接用地址访问。而在每个页面进行一次单独验证很繁琐，因此使用Filter专门做验证功能。</p>
+<h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><p>过滤器，过滤请求和响应，模拟生活中的轧机。<br>作用于：</p>
+<ol>
+<li>请求</li>
+<li>响应</li>
+</ol>
+<h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>拦截到请求地址，可以从request和respond中拿取参数进行操作，选择放行与否。</p>
+<ol>
+<li>可以拦截请求：修改请求头、请求内容</li>
+<li>可以拦截响应：修改响应头、响应内容</li>
+<li>放行请求</li>
+</ol>
+<h3 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h3><p>在web.xml中配置，类似于servlet，需要配置别名，全类名和地址，地址为要拦截过滤的地址。即本应访问的地址。</p>
+<h3 id="匹配："><a href="#匹配：" class="headerlink" title="匹配："></a>匹配：</h3><ol>
+<li>精确匹配：根据资源详细路径</li>
+<li>路径匹配：拦截路径下所有资源 /*</li>
+<li>模糊匹配：*.xxx</li>
+</ol>
+<h3 id="Filter链"><a href="#Filter链" class="headerlink" title="Filter链"></a>Filter链</h3><p>Filter的通过顺序，一个filter包括request和respond的两个拦截，在前面的filter先拦截request但是要后拦截respond。（轧机排序后进出问题，很生动）</p>
+<h3 id="dispatcher配置"><a href="#dispatcher配置" class="headerlink" title="dispatcher配置"></a>dispatcher配置</h3><ol>
+<li>forward: 拦截转发的</li>
+<li>include: 拦截包含的</li>
+<li>request: 拦截直接请求的（<strong>默认</strong>）</li>
+<li>error: 发生错误的，后服务器自动转发到全局错误页面<br>（以上配置可叠加，都放上就都拦截）</li>
+</ol>
+<h1 id="17-Ajax"><a href="#17-Ajax" class="headerlink" title="17 Ajax"></a>17 Ajax</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Asynchronous JavaScripte And XML<br>异步的JavaScript和XML，是无需重新加在整个页面的情况下，能够更新部分页面的技术。</p>
+<h2 id="同步-异步通信"><a href="#同步-异步通信" class="headerlink" title="同步/异步通信"></a>同步/异步通信</h2><p>同步通信：一个行为没有结束其他的要等待。<br>异步通信：通信之间没有任何优先级关系，相互独立。</p>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h2><ol>
+<li><p>原生JS实现  XMLHttpRequest<br>open（方式、路径URL，异步/同步）<br>设置请求类型，默认异步请求<br>send（body）<br>发送请求，body为请求体，把要发送的数据放到请求体中。</p>
+</li>
+<li><p>JQuery实现</p>
+<ul>
+<li>$.ajax(url, [settings]) <pre class=" language-hljs js"><code class="language-hljs js">$.ajax(&#123;
+   <span class="hljs-attr">url</span>:<span class="hljs-string">""</span>,
+   <span class="hljs-attr">type</span>:<span class="hljs-string">"POST"</span>,
+   <span class="hljs-attr">data</span>:<span class="hljs-string">""</span>, <span class="hljs-comment">//请求参数</span>
+   <span class="hljs-attr">success</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;
+      alart(data); <span class="hljs-comment">//响应结果</span>
+   &#125;
+&#125;)</code></pre></li>
+<li>$.get()  <em>发送get请求</em> <pre class=" language-hljs js">$.<span class="hljs-keyword"><code class="language-hljs js">$.<span class="hljs-keyword">get</span>(url, [data], [callback], [type])</code></pre></li>
+<li>$.post() <em>发送post请求</em> <pre class=" language-hljs js"><code class="language-hljs js">$.post(url, [data], [callback], [type])</code></pre>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="18-设计模式"><a href="#18-设计模式" class="headerlink" title="18 设计模式"></a>18 设计模式</h1><h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><h1 id="19-基础-Junit"><a href="#19-基础-Junit" class="headerlink" title="19 基础 - Junit"></a>19 基础 - Junit</h1><h2 id="测试分类"><a href="#测试分类" class="headerlink" title="测试分类"></a>测试分类</h2><ol>
+<li>黑盒：不需要写代码，给输入值看是否输出正确</li>
+<li>白盒：需要关注代码（<strong>Junit就是白盒</strong>）</li>
+</ol>
+<h2 id="Junit使用"><a href="#Junit使用" class="headerlink" title="Junit使用"></a>Junit使用</h2><ol start="0">
+<li>导入Junit依赖 </li>
+<li>定义一个测试类（测试用例）</li>
+<li>可以独立运行</li>
+<li>给方法加@Test注解（才可独立运行）</li>
+</ol>
+<h2 id="Before-After"><a href="#Before-After" class="headerlink" title="@Before/After"></a>@Before/After</h2><p>添加该注解，意味在测试执行前/后先执行该代码。</p>
+<h1 id="20-基础-反射"><a href="#20-基础-反射" class="headerlink" title="20 基础 - 反射"></a>20 基础 - 反射</h1><p>框架-半成品软件，可以在框架基础上进行软件开发，简化编码</p>
+<p>反射-框架的核心原理</p>
+<h2 id="反射概念"><a href="#反射概念" class="headerlink" title="反射概念"></a>反射概念</h2><p>将类的各个组成部分封装为其他对象-反射机制（Field，Construct，Method）</p>
+<p>类加载器：将类的字节码文件 加载到内存中</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><ol>
+<li>在程序运行过程中操作这些对象（比如Idea在运行的时候可以动态的获取一个类所有的方法并显示出提示）</li>
+<li>可以解藕，提高程序的可扩展性</li>
+</ol>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="获取成员变量"><a href="#获取成员变量" class="headerlink" title="获取成员变量"></a>获取成员变量</h3><ul>
+<li>Field[] getFiedlds()：获取public修饰的成员变量a<ul>
+<li>可对相应对象其get/set： a.get(obj)）</li>
+</ul>
+</li>
+<li>declaredFields()：获取全部成员变量<ul>
+<li>b.steAccessable(ture)：忽视权限修饰符，<strong>暴力反射</strong><h3 id="获取构造方法"><a href="#获取构造方法" class="headerlink" title="获取构造方法"></a>获取构造方法</h3></li>
+</ul>
+</li>
+<li>a.getConstructor() 用来创建对象</li>
+</ul>
+<h3 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h3><ul>
+<li><p>getMethod(name, val) 获取类中方法</p>
+</li>
+<li><p>method.invoke(obj) 执行对象的这个方法</p>
+</li>
+<li><p>getName() 获取方法名</p>
+</li>
+</ul>
+<h3 id="获取类"><a href="#获取类" class="headerlink" title="获取类"></a>获取类</h3><ul>
+<li><p>Class.forName(“全类名”) 多用于配置文件</p>
+</li>
+<li><p>类名.class 多用于参数的传递</p>
+</li>
+<li><p>对象.getClass() 多用于对象获取字节码的方式</p>
+</li>
+</ul>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>提前写好的代码，可以在高一层直接浏览类，而正常我们一般只能手动new一个固定的类，反射机制可以自动的或者非指定的操作类。<strong>写一个对类的通用操作，不针对固定类。</strong> 不需要改变拥有反射功能的类里的任何代码。</p>
+<blockquote>
+<p>配置文件：Properties，加在有类名和方法名的properties。</p>
+</blockquote>
+<p>如果配置文件中使用的是全类名，则其技术为反射。（通过读取配置文件中的类名和方法名反射的使用这些类）</p>
+<p><em>反射可以理解为将主程序通过一个镜面反射到要使用的类和方法上使用这些方法，而镜面系统方便的归类了这些类和方法名，方便更改反射路径</em></p>
+<h1 id="21-基础-注解"><a href="#21-基础-注解" class="headerlink" title="21 基础 - 注解"></a>21 基础 - 注解</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>用来说明程序，给计算机识别。</p>
+<h2 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h2><ol>
+<li><p><strong>「JDK预定义好的，难以操作」</strong> 通过代码里标示的元数据让编译器能够实现基本的 <strong>编译检查</strong> [@Override]</p>
+</li>
+<li><p><strong>「JDK预定义好的，难以操作」</strong> 通过代码里标示的元数据 <strong>编写文档</strong> [javadoc、API] 通过在文档注释 /** 中加@，让java能够自动的识别相关重要信息生成文档</p>
+</li>
+<li><p><strong>代码分析</strong> 通过代码里的注解对代码进行分析</p>
+</li>
+</ol>
+<h2 id="注解和反射的关系-框架"><a href="#注解和反射的关系-框架" class="headerlink" title="*注解和反射的关系-框架"></a>*注解和反射的关系-框架</h2><p>使用反射技术来抽取注解，获取注解中的属性，使用反射获取类，对该类进行自由操作。</p>
+<h2 id="JDK预定义注解"><a href="#JDK预定义注解" class="headerlink" title="JDK预定义注解"></a>JDK预定义注解</h2><p>@Override：<br>检测被该注解注释的方法是否继承父类</p>
+<p>@Deprecated：<br>该注解标注的内容已过时</p>
+<p>@SupressWarnings：<br>压制警告，关于该处（类、方法）的所有系统警告都会被压制</p>
+<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>元注解<br>public @interface 注解名称{} </p>
+<blockquote>
+<p>注解<strong>本质</strong>上是一个接口，<strong>属性</strong>接口中的抽象方法， </p>
+</blockquote>
+<h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><p>用于描述注解的注解</p>
+<ul>
+<li><p>@Target：描述注解能够作用的位置</p>
+<ul>
+<li>{ElementType：}<ul>
+<li>TYPE：作用在<strong>类</strong>上</li>
+<li>METHOD：作用在<strong>方法</strong>上</li>
+<li>FIELD：作用域<strong>成员变量</strong>上</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>@Retention：描述注解被保留的阶段</p>
+<ul>
+<li>RetentionPolicy：<ul>
+<li>SOURCE：</li>
+<li>CLASS：类对象阶段</li>
+<li>*RUNTIME：运行时阶段，保留到Class字节码文件中，会被JVM读取到</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>@Document：描述注解是否被抽取到API文档中</p>
+</li>
+<li><p>@Inherited：描述注解是否被子类继承</p>
+<h2 id="使用注解"><a href="#使用注解" class="headerlink" title="使用注解"></a>使用注解</h2><p>获取注解中定义的属性值，注解去取代配置文件。</p>
+</li>
+</ul>
+<p>方法类似于加载配置文件，利用反射对之的getAnnotation，解析注解并反射运用类。</p>
+<h1 id="22-JSON"><a href="#22-JSON" class="headerlink" title="22 JSON"></a>22 JSON</h1><p>JSON是一种数据格式，JavaScript Object Notation 。js对象表示法。</p>
+<p>JS对象，但其key必须有双引号。value与JS一样。同时外部要有大括号。</p>
+<pre class=" language-hljs json">&#123;<span class="hljs-attr">"key"</span>: value, <span class="hljs-attr"><code class="language-hljs json">&#123;<span class="hljs-attr">"key"</span>: value, <span class="hljs-attr">"key"</span>: value&#125;</code></pre>
+
+<h2 id="JSON和JS的互相转换"><a href="#JSON和JS的互相转换" class="headerlink" title="JSON和JS的互相转换"></a>JSON和JS的互相转换</h2><ul>
+<li><p>将JS（json）对象转为字符串</p>
+<pre class=" language-hljs js"><span class="hljs-keyword">var</span> str = <span class="hljs-built_in"><code class="language-hljs js"><span class="hljs-keyword">var</span> str = <span class="hljs-built_in">JSON</span>.stringify(json);</code></pre></li>
+<li><p>将字符串转为json对象</p>
+<pre class=" language-hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-built_in"><code class="language-hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-built_in">JSON</span>.parse(str)
+<span class="hljs-string">``</span><span class="hljs-string">` 
+
+## JSON和java对象的转换
+- 将java对象转为JSON字符串
+`</span><span class="hljs-string">``</span>java
+string json = gson.toJson(xx);</code></pre>
+</li>
+<li><p>将JSON字符串转为java对象<br>X x = gson.fromJson(json, x.class)</p>
+</li>
+</ul>
+<h2 id="JSON对象和js对象的区别"><a href="#JSON对象和js对象的区别" class="headerlink" title="JSON对象和js对象的区别"></a>JSON对象和js对象的区别</h2><p>JSON对象的key需要用双引号，而js对象无要求。</p>
+<h2 id="JSON和list的转换"><a href="#JSON和list的转换" class="headerlink" title="JSON和list的转换"></a>JSON和list的转换</h2><ul>
+<li>list转为json字符串</li>
 </ul>
 
             </div>
